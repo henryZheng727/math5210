@@ -28,6 +28,55 @@ $
 == Problem 1
 If $V$ is a fixed vector space, show that the equivalence of norms is an equivalence relation on the space of norms on $V$. 
 #line(length: 100%)
+
+Recall that for $norm(dot) ~ norm(dot)'$, then $~$ is an equivalence relation if
+1. _Reflexivity_: for each norm $norm(dot)$, it is true that $norm(dot) ~ norm(dot)$.
+2. _Symmetry_: $norm(dot) ~ norm(dot)'$ implies $norm(dot)' ~ norm(dot)$
+3. _Transitivity_: $norm(dot) ~ norm(dot)'$ and $norm(dot)' ~ norm(dot)''$ implies $norm(dot) ~ norm(dot)''$.
+
+Recall that a norm $norm(dot)$ on $V$ is equivalent to $norm(dot)'$ if
+$
+  exists C in RR space forall v in V : 1/C norm(v) <= norm(v)' <= C norm(v)
+$
+
+Denote norm equivalence with the operator $=$. We argue this is an equivalence relation.
+
+We argue $=$ follows the reflexivity property.
+#pad(x: 20pt)[
+  Let $norm(dot)$ be an arbitrary norm on a vector space $V$, and let $v in V$. Let $C = 1$. Then
+  $
+    norm(v) <= norm(v) <= norm(v) & => \
+    1 / 1 dot norm(v) <= norm(v) <= 1 dot norm(v) & => \
+    1 / C dot norm(v) <= norm(v) <= C dot norm(v)
+  $
+
+  Thus $norm(dot)$ is equal to itself, and thus reflexive.
+]
+
+We argue $=$ follows the symmetric property.
+#pad(x: 20pt)[
+  Let $norm(dot)$ and $norm(dot)'$ be arbitrary norms on a vector space $V$, and let $v in V$. Then $exists C in RR$ such that
+  $
+    1 / C dot norm(v) <= norm(v)' <= C dot norm(v)
+  $
+
+  Then note that basic algebra shows us
+  $
+    1 / C dot norm(v)' <= norm(v) <= C dot norm(v)
+  $
+]
+
+We argue $=$ follows the transitive property.
+#pad(x: 20pt)[
+  Let $norm(dot)$, $norm(dot)'$ and $norm(dot)''$ be arbitrary norms on a vector space $V$, and let $v in V$. Then $exists C_1, C_2 in RR$ such that
+  $
+    1/C_1 norm(v) <= norm(v)' <= C_1 norm(v) quad quad 1/C_2 norm(v)' <= norm(v)'' <= C_2 norm(v)'
+  $
+  Let $C_3 = C_1 dot C_2$. Then basic algebra shows us
+  $
+    1 / C_3 dot norm(v) <= norm(v)'' <= C_3 dot norm(v)
+  $
+]
 #pagebreak()
 
 == Problem 2
