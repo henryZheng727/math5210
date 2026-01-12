@@ -82,6 +82,23 @@ We argue $=$ follows the transitive property.
 == Problem 2
 Show that $K := {v in RR^n : sum_(i=1)^n abs(v_i) = 1}$ is compact. Conclude that for all norms on $RR^n$, \ ${v in RR^n : norm(v) = 1}$ is compact. [_Hint_: you may use the fact that all norms on $RR^n$ are equivalent]
 #line(length: 100%)
+
+We first prove the second half, then prove the first half.
+
+Let $norm(dot)$ be a norm on $RR^n$. We have previously proved several useful properties:
+1. $norm(dot)$ is continuous.
+2. If $f: X -> Y$ is continuous and $A subset Y$ is closed, then $f^(-1) (A)$ is closed in $X$.
+3. _Heine-Borel Theorem_: a subset $U subset RR^n$ is compact if and only if it is closed and bounded.
+
+We argue that $S = {v in RR^n : norm(v) = 1}$ is compact. Since it is a subset of $RR^n$, it suffices to show it is closed and bounded.
+
+Let $A = {x in RR : x = 1}$. Note that since this is a singleton set, it is obviously closed. Furthermore, it is obviously bounded in $RR^n$. Therefore, since $S$ is the inverse image of $A$, then $S$ is closed.
+
+Furthermore, $S$ is obviously bounded. The value norm is constant within the set, which means that the distance metric defined by the norm is also constant within the set.
+
+Therefore, $S$ is compact.
+
+Note, additionally, that the set $K$ as defined in the problem half is a special-case of $S$ on the $L_0$ norm. Therefore, all findings apply, and $K$ is compact.
 #pagebreak()
 
 == Problem 3
