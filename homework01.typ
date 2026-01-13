@@ -21,7 +21,7 @@ $
 $
 and
 $
-  norm(f)_(C^0) = sup_(x in [a, b]) abs(f(x)) wide norm(f)_(C^r) = sum_(k=0)^r norm(f^\(k\))_(C^0)
+  norm(f)_(C^0) = sup_(x in [a, b]) abs(f(x)) wide norm(f)_(C^r) = sum_(k=0)^r norm(f^(\(k\)))_(C^0)
 $
 #pagebreak()
 
@@ -104,6 +104,53 @@ Note, additionally, that the set $K$ as defined in the problem half is a special
 == Problem 3
 Show that $norm(dot)_(C^r)$ is a norm on $C^r ([a, b])$. [_Hint_: First show it for $r = 0$, and use this to prove it for other values of $r$].
 #line(length: 100%)
+
+We prove via induction on $r$.
+
+We first argue that $norm(dot)_(C^0)$ is a norm on $C^0 ([a, b])$.
+#pad(x: 20pt)[
+  1. #block[
+    We argue that $norm(dot)_(C^0) >= 0$ for all $v in C^0 ([a, b])$, with equality if and only if $v = 0$.
+
+    Let $f in C^0 ([a, b])$. Then $norm(f)_(C^0) = sup_(x in [a, b]) abs(f(x))$. Note that $abs(f(x)) >= 0$.
+
+    Suppose $g(x) = 0 in C^0 ([a, b])$. Then $norm(g)_(C^0) = sup_(x in [a, b]) abs(g(x)) = sup_(x in [a, b]) abs(0) = 0$.
+
+    Suppose $h(x) in C^0 ([a, b])$ and $exists w in [a, b] space h(x) != 0$. Then $norm(h)_(C^0) = sup_(x in [a, b]) abs(h(x))$. Since $h(w) != 0$, then $abs(h(w)) > 0$, and $norm(h)_(C^0) >= abs(h(w)) > 0$.
+  ]
+
+  2. #block[
+    We argue that $norm(lambda v)_(C^0) = abs(lambda) dot norm(v)_(C^0)$ for all $lambda in RR$ and $v in C^0 ([a, b])$.
+
+    Let $f in C^0 ([a, b])$ and $lambda in RR$.
+
+    Then $norm(lambda f)_(C^0) = sup_(x in [a, b]) abs(lambda dot f(x)) = abs(lambda) dot sup_(x in [a, b]) abs(f(x)) = abs(lambda) dot norm(f)_(C^0)$.
+  ]
+
+  3. #block[
+    We argue $norm(v + w)_(C^0) <= norm(v)_(C^0) + norm(w)_(C^0)$ for all $v, w in C^0 ([a, b])$.
+
+    Let $f, g in C^0 ([a, b])$. Then
+    $
+      norm(f + g)_(C^0) = sup_(x in [a, b]) abs(f(x) + g(x)) <= & sup_(x in [a, b]) (abs(f(x)) + abs(g(x))) <= \
+      & sup_(x in [a, b]) abs(f(x)) + sup_(x in [a, b]) abs(g(x)) <= norm(f)_(C^0) + norm(g)_(C^0)
+    $
+  ]
+]
+
+We additionally argue that if $norm(dot)_(C^r)$ is a norm on $C^r ([a, b])$, then $norm(dot)_(C^(r+1))$ is a norm on $C^(r+1) ([a, b])$.
+#pad(x: 20pt)[
+  Note that $norm(f)_(C^(r+1)) = norm(f^(\(r+1\)))_(C^0) + norm(f)_(C^r)$. Additionally, note that our base case has proved the left operand is a norm, and by assumption, the right operand is a norm. It therefore suffices to show that the sum of two norms is a norm.
+
+  Let $norm(dot)$ and $norm(dot)'$ be two norms on $C^r ([a, b])$. We argue that their sum, $norm(dot) + norm(dot)'$ is still a norm.
+  1. Since $forall h in C^r ([a, b])$, then $norm(h) >=0$ and $norm(h)' >= 0$ with equality if and only if $h(x) = 0$, then $norm(h) + norm(h)' >= 0$ with equality if and only if $h(x) = 0$.
+
+  2. Let $lambda in RR$ and $f in C^r ([a, b])$. Then $norm(lambda v) + norm(lambda v)' = abs(lambda) norm(v) + abs(lambda) norm(v)' = abs(lambda) (norm(v) + norm(v)')$.
+
+  3. #block[
+    Let $f, g in C^r ([a, b])$. We know $norm(f + g) <= norm(f) + norm(g)$ and $norm(f + g)' <= norm(f)' + norm(g)'$. Then obviously $norm(f + g) + norm(f + g)' <= (norm(f) + norm(f)') + (norm(g) + norm(g)')$.
+  ]
+]
 #pagebreak()
 
 == Problem 4
