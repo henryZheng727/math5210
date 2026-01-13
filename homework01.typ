@@ -161,6 +161,28 @@ Show that if $X$ is a compact metric space, $f_n in C^0 (X)$ and $f_n -> f$ with
 == Problem 5
 Show that the $C^1$-norm and $C^0$-norm on $C^infinity ([0, 1])$ are not equivalent. [_Hint_: Find a sequence of nonzero $C^infinity$ functions $f_n$ such that the ratio of the two norms either goes to $infinity$ or $0$]
 #line(length: 100%)
+
+Note that two norms $norm(dot), norm(dot)'$ are equivalent if
+$
+  exists C in RR space forall v in V : & 1/C dot norm(v) <= norm(v)' <= C dot norm(v)
+$
+
+We have already constructed the requested sequence in class. Let
+$
+  f_n (x) = 1/n sin(n^2 (x)) "on" [0, 1]
+$
+
+Since $1/n -> 0$ and $sin(n^2 (x))$ is bounded, then $f_n ->^(C^0) 0$. Since every convergent sequence is Cauchy, then $(f_n)$ is Cauchy on the $C^0$ norm.
+
+However, note that
+$
+  (f_n)' = 1/n dot n^2 cos(n^2 x) = n cos(n^2 x)
+$
+
+This is obviously unbounded. Therefore, for $norm(f)_(C^1) = abs(f')_(C^0) + abs(f)_(C^0)$, the sequence $f_n$ cannot be Cauchy. (This is what we demonstrated in class.)
+
+We have previously demonstrated via a theorem that if $norm(dot)$ and $norm(dot)'$ are equivalent, then they have the same set of Cauchy sequences. Since there exists a sequence that is Cauchy on the $C^0$ norm but not the $C^1$ norm, then the norms cannot be equivalent.
+
 #pagebreak()
 
 == Problem 6
