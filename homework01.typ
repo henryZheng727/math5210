@@ -156,6 +156,13 @@ We additionally argue that if $norm(dot)_(C^r)$ is a norm on $C^r ([a, b])$, the
 == Problem 4
 Show that if $X$ is a compact metric space, $f_n in C^0 (X)$ and $f_n -> f$ with respect to $norm(dot)_(C^0)$ for some function $f$ on $X$, then $f in C^0 (x)$. [_Hint_: Fix an $epsilon > 0$ then fix a large $n$ such that $norm(f_n - f)_(C^0)$ is small. Choose a $delta$ based on the continuity of $f_n$. You should use the triangle inequality three times.]
 #line(length: 100%)
+
+Let $epsilon > 0$. We argue that $exists delta in RR : forall x, y in X space d(x, y) < delta => abs(f(x) - f(y)) < epsilon$.
+
+hint:
+outlined in class
+c^0 limit of continuous is continuous
+apply the triangle inequality 3 times after picking your delta
 #pagebreak()
 
 == Problem 5
@@ -182,7 +189,6 @@ $
 This is obviously unbounded. Therefore, for $norm(f)_(C^1) = abs(f')_(C^0) + abs(f)_(C^0)$, the sequence $f_n$ cannot be Cauchy. (This is what we demonstrated in class.)
 
 We have previously demonstrated via a theorem that if $norm(dot)$ and $norm(dot)'$ are equivalent, then they have the same set of Cauchy sequences. Since there exists a sequence that is Cauchy on the $C^0$ norm but not the $C^1$ norm, then the norms cannot be equivalent.
-
 #pagebreak()
 
 == Problem 6
@@ -205,3 +211,45 @@ For $d in NN$, let $cal(P)_d ([0, 1])$ be the polynomials of degree $d$, conside
   ],
 )
 #line(length: 100%)
+
+Recall that a vector space must support _addition_ and _scaling_. We argue $cal(P)_d ([0, 1])$ satisfies these.
+1. We argue if $f, g in cal(P)_d ([0, 1])$, then $f + g in cal(P)_d ([0, 1])$. This is trivial; the sum of two polynomials will sum their corresponding coefficients, and produce another polynomial of degree $d$. Addition, as previously proved, is associative, commutative, and there exists an additive inverse.
+2. We argue if $f in cal(P)_d ([0, 1])$ and $lambda in RR$, then $lambda f in cal(P)_d ([0, 1])$. This is similarly trivial; all coefficients are scaled, and thus normal properties apply.
+
+We argue $norm(dot)_(C^0)$ is a norm on $cal(P)_d ([0, 1])$. Note that all polynomials are continuous. We have previously proven that $norm(dot)_(C^0)$ is a norm on $C^0$. Since $cal(P)_d ([0, 1]) subset.eq C^0$, then it is obviously also a norm on $cal(P)_d ([0, 1])$.
+
+We argue $p(x) = a_d x^d + a_(d-1) x^(d-1) + ... + a_0$ is a polynomial, $norm(p) := max{abs(a_d), ..., abs(a_0)}$ defines a norm on $cal(P)_d ([0, 1])$.
+1. #block[
+  Since $norm(p)$ takes the max of absolute values, it is true that $norm(p) >= 0$.
+
+  Suppose $p(x) = 0$. Then $norm(p) = max{0, ..., 0} = 0$.
+
+  Suppose $p(x) != 0$. Then $norm(p)$ will take the max of a set containing at least one non-zero value. Then $norm(p) != 0$.
+]
+
+2. #block[
+  Let $lambda in RR$. Then
+  $
+    norm(lambda p) = max{abs(lambda dot a_d), ..., abs(lambda dot a_0)} = max{abs(lambda) dot abs(a_d), ..., abs(lambda) dot abs(a_0)} = \ abs(lambda) dot max{abs(a_d), ..., abs(a_0)} = abs(lambda) dot norm(p)
+  $
+]
+
+3. #block[
+  Let $f = f_d x^d + ... + f_0$ and $g = g_d x^d + ... + g_0 in cal(P)_d ([0, 1])$.
+
+  Then $norm(f + g) = max{abs(f_d + g_d), ..., abs(f_0 + g_0)}$. Recall that $abs(a + b) <= abs(a) + a(b)$. Therefore,
+  
+  $
+    norm(f + g) <= max{abs(f_d) + abs(g_d), ..., abs(f_0) + abs(g_0)} <= max{abs(f_d), ..., abs(f_0)} + max{abs(g_d), ..., abs(g_0)} <= norm(f) + norm(g)
+  $
+]
+
+We argue for all $d in NN$, there exists $C_d$ such that for all polynomials $p(x) = a_d x^d + a_(d-1) x^(d-1) + ... + a_0$ there exists $x in [0, 1]$ such that for every $i in {0, ..., d}$, then $abs(a_i) <= C_d abs(p(x))$.
+
+Let $d in NN$. Furthermore, let $C_d = d$.
+
+Let $p(x) = a_d x^d + a_(d-1) x^(d-1) + ... + a_0$ be an arbitrary polynomial.
+
+Let $x in [0, 1]$ such that $abs(p(x)) = sup_(w in [0, 1]) abs(p(x))$ (i.e., select the $x$-coordinate at which $p$ achieves the highest magnitude.
+
+Let $i in {0, ..., d}$. Note that because we sum $d$ digits, then the coefficient of any individual one cannot overpower the sum of the maximum value of $abs(p(x))$. Therefore, $abs(a_i) <= C_d abs(p(x))$.
