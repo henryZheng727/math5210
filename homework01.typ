@@ -159,10 +159,17 @@ Show that if $X$ is a compact metric space, $f_n in C^0 (X)$ and $f_n -> f$ with
 
 Let $epsilon > 0$. We argue that $exists delta in RR : forall x, y in X space d(x, y) < delta => abs(f(x) - f(y)) < epsilon$.
 
-hint:
-outlined in class
-c^0 limit of continuous is continuous
-apply the triangle inequality 3 times after picking your delta
+We know that $f_n -> f$; thus, $exists n$ such that $norm(f_n - f)_(C^0) < epsilon / 3$. Since the $C^0$ norm is the supremum of the absolute value of the function, then $forall x space abs(f_n (x) - f(x)) <= norm(f_n - f) < epsilon / 3$ as well.
+
+We know that $f_n (x)$ is continuous; thus, $exists delta$ such that $d(x, y) < delta) => f(x) - f(y) < epsilon / 3$. We choose this delta as well.
+
+Finally, we conclude that
+
+$
+  abs(f(x) - f(y)) <= & abs(f(x) - f_n (x) + f_n (x) - f_n (y) + f_n (y) - f(y)) <= \
+  & abs(f(x) - f_n (x)) + abs(f_n (x) - f_n (y)) + abs(f(y) - f_n (y)) < \
+  & epsilon / 3 + epsilon / 3 + epsilon / 3 < epsilon
+$
 #pagebreak()
 
 == Problem 5
