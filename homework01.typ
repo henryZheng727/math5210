@@ -194,6 +194,23 @@ We have previously demonstrated via a theorem that if $norm(dot)$ and $norm(dot)
 == Problem 6
 Show that ${f in C^0 ([0, 1]): norm(f)_(C^0) <= 1}$ is closed and bounded in $C^0 (X)$ with respect to $norm(dot)_(C^0)$, but not compact.
 #line(length: 100%)
+
+We argue that $K = {f in C^0 ([0, 1]): norm(f)_(C^0) <= 1}$ is closed and bounded in $C^0 (x)$ with respect to $norm(dot)_(C^0)$.
+
+Since the norm of all $f in K$ is less than or equal to $1$, then the set is obviously bounded.
+
+Note that the $C^0$ norm is continuous, and therefore, if $A subset RR$ is closed, then $f^(-1) (A)$ is closed in $C^0 ([0, 1])$. Further note that $K = f^(-1) ([0, 1])$. The set $[0, 1] subset RR$ is obviously closed by the Heine-Borel Theorem, and thus $K$ is closed.
+
+We argue that $K$ is not compact. Assume for the sake of contradiction that $K$ were compact. Then if $f: K -> RR$ is continuous, then $f(K)$ must also be compact.
+
+Recall again the pathological sequence from Problem 5
+$
+  f_n (x) = 1/n sin(n^2 (x)) "on" [0, 1]
+$
+
+Note that since $1/n <= 1$ and $sin(n^2 (x)) <= 1$, then all $(f_n)$ are in $K$.
+
+Furthermore, recall that the $C^1$ norm is continuous (as it is a norm), and furthermore, that under the $C^1$ norm, the sequence $norm(f_n)$ is unbounded. Since the image of $K$ under the $C^1$ norm is unbounded, it cannot be compact. Therefore, $K$ itself cannot be compact.
 #pagebreak()
 
 == Problem 7
