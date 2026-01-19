@@ -57,7 +57,34 @@ We finally argue that $K_(L, B)$ is equicontinuous.
 == Problem 2
 The $C^1$-unit ball is the set ${f in C^1 ([a, b]) : norm(f)_(C^1) <= 1}$. Show that the $C^1$-unit ball is pre-compact in $C^0 ([a, b])$ with respect to $norm(f)_(C^0)$, but not compact.
 #line(length: 100%)
-// todo - problem 2
+
+Call the $C^1$-unit ball $S$. By the Arzela-Ascoli Theorem, $S$ is precompact with respect to $C^0$ if and only if $S$ is bounded and equicontinuous. It thus suffices to prove that $S$ is bounded, $S$ is equicontinuous, and $S$ is not compact.
+
+We claim that $S$ is bounded.
+#pad(x: 20pt)[
+  Note that $forall s in S$, then $norm(s)_(C^1) = norm(s)_(C^0) + norm(s')_(C^0)$. Since the $C^1$ norm is an upper bound for the $C^0$ norm, then $norm(s)_(C^0) <= 1$. Therefore, $S$ is bounded on the $C^0$ norm.
+]
+
+We claim that $S$ is equicontinuous.
+#pad(x: 20pt)[
+  Recall that $S$ is equicontinuous if and only if
+  $
+    forall epsilon > 0 space exists delta > 0 "such that" forall x, y "with" d(x, y) < delta "and" forall f in S, "then" abs(f(x) - f(y)) < epsilon
+  $
+
+  Let $epsilon > 0$, and choose $delta = epsilon$. Let $x, y in [a, b]$ such that $d(x, y) < delta$. Let $f in S$.
+
+  Note that $norm(f)_(C^1) = norm(f)_(C^0) + norm(f')_(C^0)$. Since the $C^0$ norm defines the supremum of the absolute value of the function, and the $C^1$ norm is bounded above by $1$, then the absolute value of the first derivative of $f$ is bounded above by $1$; that is, $forall z in [a, b] : abs(f'(z)) <= 1$.
+
+  Further note that by the Mean Value Theorem, $exists c in [a, b] : abs(f(x) - f(y))/abs(x - y) = f'(c)$. Because $f'(c)$ is bounded, $abs(f(x) - f(y))/abs(x - y) <= 1$, thus, $abs(f(x) - f(y)) <= abs(x - y)$.
+]
+
+We claim that $S$ is not compact.
+#pad(x: 20pt)[
+  It suffices to prove there exists a sequence in $S$ which has no convergent subsequence.
+
+  // todo
+]
 #pagebreak()
 
 == Problem 3
