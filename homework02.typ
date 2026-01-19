@@ -126,7 +126,14 @@ Let $V$ be a Banach space with respect to norm $norm(dot)$ and $W subset V$ is a
 == Problem 5
 Show that if $C^0 ([0, 1])$ is given the $C^0$-norm and $x in [0, 1]$, the function $delta_x (f) = f(x)$ is a bounded functional.
 #line(length: 100%)
-// todo - problem 5
+
+Fix $x in [0, 1]$ and let $g, h in C^0 ([0, 1])$. Let $delta_x (f) = f(x)$, and let $lambda in RR$.
+
+Note that $delta_x (g + h) = (g + h)(x) = g(x) + h(x) = delta_x (g) + delta_x (h)$, because $g$ and $h$ are continuous.
+
+Note that $delta_x (lambda g) = (lambda g)(x) = lambda dot g(x) = lambda dot delta_x (g)$, because $g$ is continuous.
+
+Note that because $g$ is in $C^0 ([0, 1])$, the function is bounded, and thus $delta_x (g)$ is also bounded, and thus $sup_(norm(v) = 1) abs(delta_x (v)) < infinity$.
 #pagebreak()
 
 == Problem 6
