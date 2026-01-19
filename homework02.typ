@@ -90,7 +90,31 @@ We claim that $S$ is not compact.
 == Problem 3
 Show that if $X$ is a compact metric space and $V subset C^0 (X)$ is a finite-dimensional subspace, then ${f in V : norm(f)_(C^0) <= 1}$ is compact. [_Hint_: Establish the assumptions of Arzela-Ascoli by fixing some basis of $V$]
 #line(length: 100%)
-// todo - problem 3
+
+Let $V subset C^0 (X)$ be a finite-dimensional subspace. Let $B = {b_1, b_2, ..., b_n}$ be a basis of $V$, and let $S = {f in V : norm(f)_(C^0) <= 1}$. Note that by the Arzela-Ascoli Theorem, $S$ is compact if
+1. $S$ is closed.
+2. $S$ is bounded.
+3. $S$ is equicontinuous.
+
+We argue $S$ is closed.
+#pad(x: 20pt)[
+  Note that for a continuous function, the inverse image of a closed set must be closed. Further note that $C^0$ norm is continuous with respect to itself, and that $[0, 1] in RR$ is closed. Finally, note that $S$ is the inverse image of $[0, 1]$ with respect to the $C^0$ norm. Thus, $S$ is closed.
+]
+
+We argue $S$ is bounded.
+#pad(x: 20pt)[
+  Note that $forall s in S$, then $norm(s)_(C^0) <= 1$. Since the norm defines distance, the distance between all points in the set is also obviously bounded. Therefore, $S$ is bounded on the $C^0$ norm.
+]
+
+We argue $S$ is equicontinuous.
+#pad(x: 20pt)[
+  Recall that $S$ is equicontinuous if and only if
+  $
+    forall epsilon > 0 space exists delta > 0 "such that" forall x, y "with" d(x, y) < delta "and" forall f in S, "then" abs(f(x) - f(y)) < epsilon
+  $
+
+  // todo
+]
 #pagebreak()
 
 == Problem 4
