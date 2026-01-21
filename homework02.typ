@@ -122,7 +122,18 @@ We argue $S$ is equicontinuous.
 == Problem 4
 Let $V$ be a Banach space with respect to norm $norm(dot)$ and $W subset V$ is a vector subspace, then $overline(W)$ is a Banach space with respect to $norm(dot)$. [_Note_: You need to show that $overline(W)$ is a vector subspace in addition to being complete]
 #line(length: 100%)
-// todo - problem 4
+
+First, we show that $overline(W)$ is a vector subspace.
+#pad(x: 20pt)[
+  We argue that $x, y in overline(W) => x + y in overline(W)$. Note since $x in overline(W)$, then $exists (x_n) in W : x_n -> x$ and symmetrically $exists (y_n) in W : y_n -> y$. Note that $forall n$, then $x_n + y_n in W$, as $W$ is a vector subspace (i.e., it is a sequence in $W$). Additionally note that $x_n + y_n -> x + y$. Therefore, $x + y in overline(W)$.
+
+  We argue that $x in overline(W)$ and $lambda in RR => lambda x in overline(W)$. Note since $x in overline(W)$, then $exists (x_n) in W : x_n -> x$. Note that $forall n$, then $lambda x_n in W$, as $W$ is a vector subspace (i.e., it is a sequence in $W$). Additionally note that $lambda x_n -> lambda x$. Therefore, $lambda x in overline(W)$.
+]
+
+Secondly, we argue that $overline(W)$ is a Banach space.
+#pad(x: 20pt)[
+  Let $x_n$ be a Cauchy sequence in $overline(W)$. We argue that $x_n$ converges. Note that $overline(W) subset.eq V$ and $V$ is a Banach space. Therefore, $x_n$ converges in $V$. However, since $overline(W)$ is closed, every convergent sequence converges to a point in $overline(W)$. Therefore, $x_n$ must converge to a point in $overline(W)$. Thus, $overline(W)$ is a Banach space.
+]
 #pagebreak()
 
 == Problem 5
