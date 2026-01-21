@@ -100,7 +100,11 @@ Let $V subset C^0 (X)$ be a finite-dimensional subspace. Let $B = {b_1, b_2, ...
 
 We argue $S$ is closed.
 #pad(x: 20pt)[
-  Note that for a continuous function, the inverse image of a closed set must be closed. Further note that $C^0$ norm is continuous with respect to itself, and that $[0, 1] in RR$ is closed. Finally, note that $S$ is the inverse image of $[0, 1]$ with respect to the $C^0$ norm. Thus, $S$ is closed.
+  Note the intersection of two closed sets is closed, and $S$ is the intersection of $f in V$ and the $C^0$ unit ball. It thus suffices to prove these individually are closed.
+
+  We argue $V$ is closed. Let $x_n = arrow(a_n) dot B$ be a sequence converging to $x$ (where $a_n in RR^n$). Note that because convergence is preserved across addition and scaling of vector sequences, this is true if and only if $a_n -> a in RR^n$ and $x = a dot B$. However, this implies $x in V$, as it is expressed as a sum of basis vectors. Thus $V$ is closed.
+
+  We argue the $C^0$ unit ball is closed. Note that for a continuous function, the inverse image of a closed set must be closed. Further note that $C^0$ norm is continuous with respect to itself, and that $[0, 1] in RR$ is closed. Finally, note that the $C^0$ unit ball is the inverse image of $[0, 1]$ with respect to the $C^0$ norm. Thus, the $C^0$ unit ball is closed.
 ]
 
 We argue $S$ is bounded.
@@ -115,7 +119,18 @@ We argue $S$ is equicontinuous.
     forall epsilon > 0 space exists delta > 0 "such that" forall x, y "with" d(x, y) < delta "and" forall f in S, "then" abs(f(x) - f(y)) < epsilon
   $
 
-  // todo
+  Let $epsilon > 0$. Choose $delta$ (as described below). Let $x, y in X$ such that $d(x, y) < delta$. Let $f in S$ and note that
+  $
+    abs(f(x) - f(y)) <= abs((a dot B)(x) - (a dot B)(y)) <= abs(a dot B(x - y))
+  $
+  Since the sup-norm of $f$ is less than $1$, then $(a dot B)(x) <= (1 dot B)(x)$ for every $x$. Thus,
+  $
+    abs(f(x) - f(y)) <= abs((1 dot B)(x - y))
+  $
+  Note that because $(1 dot B)$ is a linear function, it has a bound $L$. Choose $delta = epsilon / L$. Then
+  $
+    abs(f(x) - f(y)) <= abs((1 dot B)(x - y)) <= L abs(x - y) < L dot delta = epsilon
+  $
 ]
 #pagebreak()
 
