@@ -79,11 +79,13 @@ We claim that $S$ is equicontinuous.
   Further note that by the Mean Value Theorem, $exists c in [a, b] : abs(f(x) - f(y))/abs(x - y) = f'(c)$. Because $f'(c)$ is bounded, $abs(f(x) - f(y))/abs(x - y) <= 1$, thus, $abs(f(x) - f(y)) <= abs(x - y)$.
 ]
 
-We claim that $S$ is not compact.
+We claim that $S$ is not closed.
 #pad(x: 20pt)[
-  It suffices to prove there exists a sequence in $S$ which has no convergent subsequence.
+  It suffices to prove there exists a sequence in $S$ which has no convergent subsequence. Consider the sequence $f_n (x) = 1/3 sqrt(x^2 + 1/n)$. Without loss of generality, assume the interval is $[-1, 1]$ (i.e., we may generalize to $[a, b]$ by scaling the coefficients of terms and the overall function, which would require tedious bookkeeping around whether $a, b <= 1$ or $a, b >= 0$, etc.).
 
-  // todo
+  Since $x^2 <= 1$ and $1/n <= 1$, then $f_n (x) <= 1/2$. Additionally, $f'_n (x) = x / (3 dot sqrt(x^2 + 1/n))$. Note that $x <= sqrt(x^2 + 1/n)$, so $f'_n (x) <= 1/3$. Therefore, $f_n (x)$ is in $S$.
+
+  However, $f_n (x) -> f(x)$ where $f(x) = 1/3 abs(x)$. This is _not_ differentiable at $x = 0$. Thus, it is not in $S$.
 ]
 #pagebreak()
 
