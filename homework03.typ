@@ -1,0 +1,49 @@
+#set page(margin: 0.75in)
+#set text(size: 12pt)
+#show math.equation.where(block: false): set math.frac(style: "skewed")
+
+#align(center)[
+  = Analysis Fall 2025: Homework 3
+  Henry Zheng
+]
+
+If $V$ is a Banach space, an operator (on $V$) is a linear function $T : V -> V$. $T$ is called bounded if $norm(T) := sup_(norm(v)=1) norm(T(v)) < infinity$.
+$T$ is called compact if $T(B(0, 1))$ is precompact in $V$, where $B(0, 1) = {v in V : norm(v) <= 1}$ is the unit ball in $V$.
+#pagebreak()
+
+== Problem 1
+Show that if an operator is compact, then it is bounded.
+#line(length: 100%)
+// todo - problem 1
+#pagebreak()
+
+== Problem 2
+Show that the indefinite integration function $I$ is a compact operator on $C^0 ([0, 1])$ (with the $C^0$-norm), where
+$
+  (I(f))(x) := integral_0^x f(t) dif t
+$
+(You must both show that it is an operator and compact) \*Find the image $I$, and prove your answer is correct.
+#line(length: 100%)
+// todo - problem 2
+#pagebreak()
+
+== Problem 3
+Show that the function $T: C^0 ([a, b]) -> C^0 ([a, b])$ defined by
+$
+  (T(f))(x) = f(x/2)
+$
+is a bounded operator on $C^0 ([a, b])$ (with the $C^0$-norm), but not compact.
+#line(length: 100%)
+// todo - problem 3
+#pagebreak()
+
+== Problem 4
+Show that if $cal(F) subset.eq C^1 ([a, b])$ is $C^1$-closed, $C^1$-bounded and the collection ${f' : f in cal(F)}$ is equicontinuous, then $cal(F)$ is compact (with respect to the $C^1$-norm). [_Note_: You can use the $C^0$-version of Arzela-Ascoli in your proof]
+#line(length: 100%)
+// todo - problem 4
+#pagebreak()
+
+== Problem 5
+Show that if a subset $cal(F) subset.eq C^1 ([a, b])$ is compact (with respect to the $C^1$-norm), then it is $C^1$-closed, $C^1$-bounded and the collection ${f' : f in cal(F)}$ is equicontinuous. [_Note_: You can use the $C^0$-version of Arzela-Ascoli in your proof]
+#line(length: 100%)
+// todo - problem 5
