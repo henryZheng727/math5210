@@ -139,7 +139,29 @@ Note that because $g$ is in $C^0 ([0, 1])$, the function is bounded, and thus $d
 == Problem 6
 Show that if $C^0 ([0, 1])$ is given the $C^0$-norm, the function $cal(I)_g (f) = integral_0^1 g(x) f(x) dif x$ is a bounded functional for every $g in C^0 ([0, 1])$ (the integral is the usual Riemann integral).
 #line(length: 100%)
-// todo - problem 6
+
+Fix $g in C^0([0, 1])$.
+
+Let $h, i in C^0 ([0, 1])$. Note that
+$
+  cal(I)_g (h + i) = integral_0^1 g(x) (h + i)(x) dif x =
+  integral_0^1 g(x) (h(x) + i(x)) dif x = 
+  integral_0^1 g(x) h(x) + g(x) i(x) dif x = \
+  integral_0^1 g(x) h(x) dif x + integral_0^1 g(x) i(x) dif x =
+  cal(I)_g (h) + cal(I)_g (i)
+$
+
+Let $f in C^0 ([0, 1])$ and let $lambda in RR$. Note that
+$
+  cal(I)_g (lambda f) = integral_0^1 g(x) dot lambda f(x) dif x = 
+  lambda integral_0^1 g(x) f(x) dif x = lambda cal(I)_g (f)
+$
+
+We seek to prove $exists M in RR$ such that $forall f in C^0 ([0, 1])$ with $norm(f) = 1$, then $integral_0^1 g(x) f(x) dif x <= M$. Denote $G(x)$ to be the antiderivative of $g(x)$, and set $M = G(1) - G(0)$. Note that $norm(f) = 1$, thus, $f(x) <= 1$ for every $x$ in $[0, 1]$. Therefore,
+$
+  integral_0^1 g(x) f(x) dif x <= integral_0^1 g(x) dot 1 dif x = G(1) - G(0)
+$
+
 #pagebreak()
 
 == Problem 7
