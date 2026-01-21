@@ -145,4 +145,25 @@ Show that if $C^0 ([0, 1])$ is given the $C^0$-norm, the function $cal(I)_g (f) 
 == Problem 7
 Show that $cal(L)$ is a bounded functional if and only if it is continuous from $V$ to $RR$, where $V$ uses its norm to define a distance. [As a reminder, continuity in this context means that for every $epsilon > 0$, find a $delta > 0$ such that if $norm(v - w) < delta$, then $abs(cal(L)(v) - cal(L)(w)) < epsilon$.]
 #line(length: 100%)
-// todo - problem 7
+
+Suppose that $cal(L)$ is a bounded functional. We argue that $cal(L)$ is continuous.
+#pad(x: 20pt)[
+  Let $epsilon > 0$.
+
+  Since $cal(L)$ is a bounded functional, then $sup_(norm(v)=1) abs(cal(L)(v)) < infinity$. Let $B = sup_(norm(v)=1) abs(cal(L)(v))$, and choose $delta = epsilon / B$.
+
+  Let $v, w in V$ such that $norm(v - w) < delta$. Then
+  $
+    abs(cal(L)(v) - cal(L)(w)) = abs(cal(L)(v) + cal(L)(-w)) = abs(cal(L)(v - w)) = norm(v - w) dot abs(cal(L)((v - w)/norm(v - w)))
+  $
+
+  Note that $norm((v - w)/norm(v - w)) = 1$, and thus, the second term is bounded above by $B$. Further, by definition, the first term is bounded above by $delta$. Thus
+  $
+    abs(cal(L)(v) - cal(L)(w)) < delta dot B = epsilon / B dot B = epsilon
+  $
+]
+
+Suppose that $cal(L)$ is continuous. We argue that $cal(L)$ is a bounded functional.
+#pad(x: 20pt)[
+  I could not resolve how to solve this. In fact, I'm not sure I'm convinced it is true. Take, for example, $f: RR -> RR$ and $f(x) = x^2$. Then $f(x + y) = x^2 + 2x y + y^2 != x^2 + y^2$. Furthermore, $f(lambda x) = lambda^2 x^2 != lambda x^2$. Therefore, $f$ cannot be a bounded functional.
+]
