@@ -7,14 +7,18 @@
   Henry Zheng
 ]
 
-If $V$ is a Banach space, an operator (on $V$) is a linear function $T : V -> V$. $T$ is called bounded if $norm(T) := sup_(norm(v)=1) norm(T(v)) < infinity$.
-$T$ is called compact if $T(B(0, 1))$ is precompact in $V$, where $B(0, 1) = {v in V : norm(v) <= 1}$ is the unit ball in $V$.
+If $V$ is a Banach space, an operator (on $V$) is a linear function $T : V -> V$. $T$ is called bounded if $norm(T) := sup_(norm(v)=1) norm(T(v)) < infinity$. $T$ is called compact if $T(B(0, 1))$ is precompact in $V$, where $B(0, 1) = {v in V : norm(v) <= 1}$ is the unit ball in $V$.
 #pagebreak()
 
 == Problem 1
 Show that if an operator is compact, then it is bounded.
 #line(length: 100%)
-// todo - problem 1
+
+Let $T$ be a compact operator. Then note that ${v in V : norm(v) = 1) subset.eq B(0, 1)$, and further note that $T(B(0, 1))$ is a precompact set.
+
+By the Arzela-Ascoli Theorem, $T(B(0, 1))$ is bounded and equicontinuous; i.e., there exists some $M in RR : forall T(v) "where" norm(v) <= 1$, then $T(v) <= M$.
+
+We know $norm(T) := sup_(norm(v)=1) norm(T(v)) < infinity$. The above definition thus obviously implies that there exists some $M in RR : norm(v) = 1 => T(v) <= M$. Then $norm(T) = sup_(norm(v)=1) norm(T(v))$ is not infinity.
 #pagebreak()
 
 == Problem 2
