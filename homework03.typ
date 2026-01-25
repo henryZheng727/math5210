@@ -28,7 +28,45 @@ $
 $
 (You must both show that it is an operator and compact) \*Find the image $I$, and prove your answer is correct.
 #line(length: 100%)
-// todo - problem 2
+
+We argue that $I$ is an operator.
+#pad(x: 20pt)[
+  We argue that $I(f + g) = I(f) + I(g)$ for $f, g in C^0 ([0, 1])$.
+  $
+    I(f + g) =
+    integral_0^x f(t) + g(t) dif t =
+    integral_0^x f(t) dif t + integral_0^x g(t) dif t =
+    I(f) + I(g)
+  $
+
+  We argue that $I(lambda f) = lambda I(f)$ for $f in C^0 ([0, 1])$ and $lambda in RR$.
+  $
+    I(lambda f) =
+    integral_0^x lambda f(t) dif t =
+    lambda integral_0^x f(t) dif t =
+    lambda I(f)
+  $
+]
+
+We argue that $I$ is a compact operator; i.e., $I(B(0, 1))$ is precompact. By the Arzela-Ascoli Theorem, it suffices to prove $I(B(0, 1))$ is bounded and equicontinuous.
+#pad(x: 20pt)[
+  We argue $I(B(0, 1))$ is bounded.
+  #pad(x: 20pt)[
+    Let $M = 1$. Let $F in I(B(0, 1))$. Then note that $F' = f$ where $f(x) <= 1$ for all $x$. Since integration preserves ordering, then $F(x) - F(0) <= x$. Additionally, note that $F(0) = integral_0^0 f(t) dif t = 0$; and thus, $F(x) <= x$. Finally, note that $x <= 1$. Therefore, $sup_(x in [0,1]) abs(F(x)) <= 1 => norm(F) <= 1$. Thus $I(B(0, 1))$ is bounded.
+
+  ]
+
+  We argue $I(B(0, 1))$ is equicontinuous.
+  #pad(x: 20pt)[
+    Let $epsilon > 0$. Choose $delta = epsilon$. Let $x, y in [0, 1]$ such that $abs(x - y) < delta$.
+
+    Let $F in I(B(0, 1))$. We argue that $abs(F(x) - F(y)) < epsilon$.
+
+    Note that $F' = f$ for some $f in B(0, 1)$. Therefore, $forall x : F'(x) <= 1$. By the Mean Value Theorem, this implies that $(F(x) - F(y))/(x - y) <= 1$.
+
+    Therefore, $abs(F(x) - F(y)) <= abs(x - y) < delta = epsilon$.
+  ]
+]
 #pagebreak()
 
 == Problem 3
