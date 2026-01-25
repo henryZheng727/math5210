@@ -53,7 +53,6 @@ We argue that $I$ is a compact operator; i.e., $I(B(0, 1))$ is precompact. By th
   We argue $I(B(0, 1))$ is bounded.
   #pad(x: 20pt)[
     Let $M = 1$. Let $F in I(B(0, 1))$. Then note that $F' = f$ where $f(x) <= 1$ for all $x$. Since integration preserves ordering, then $F(x) - F(0) <= x$. Additionally, note that $F(0) = integral_0^0 f(t) dif t = 0$; and thus, $F(x) <= x$. Finally, note that $x <= 1$. Therefore, $sup_(x in [0,1]) abs(F(x)) <= 1 => norm(F) <= 1$. Thus $I(B(0, 1))$ is bounded.
-
   ]
 
   We argue $I(B(0, 1))$ is equicontinuous.
@@ -88,4 +87,24 @@ Show that if $cal(F) subset.eq C^1 ([a, b])$ is $C^1$-closed, $C^1$-bounded and 
 == Problem 5
 Show that if a subset $cal(F) subset.eq C^1 ([a, b])$ is compact (with respect to the $C^1$-norm), then it is $C^1$-closed, $C^1$-bounded and the collection ${f' : f in cal(F)}$ is equicontinuous. [_Note_: You can use the $C^0$-version of Arzela-Ascoli in your proof]
 #line(length: 100%)
-// todo - problem 5
+
+Suppose that $cal(F) subset.eq C^1 ([a, b])$ is compact with respect to the $C^1$-norm.
+
+We argue $cal(F)$ is $C^1$-closed. This has been proved in class: every compact set is closed.
+
+We argue $cal(F)$ is $C^1$-bounded.
+#pad(x: 20pt)[
+  Let $f in F$. Then $norm(f)_(C^1) = norm(f')_(C^0) + norm(f)_(C^0)$.
+
+  Note that because $norm(dot)_(C^1) >= norm(dot)_(C^0)$, then $cal(F)$ being $C^1$-bounded implies that $cal(F)$ is $C^0$-bounded; i.e., $exists M' in RR : norm(f)_(C^0) <= M'$.
+
+  Note that because $norm(f)$ todo
+]
+
+We argue that $cal(F)' = {f' : f in cal(F)}$ is equicontinuous.
+#pad(x: 20pt)[
+  Let $epsilon > 0$ and choose $delta = $ todo. Let $x, y in [a, b] : abs(x - y) <= delta$. Let $f' in cal(F)'$ with $f in cal(F)$.
+  $
+    abs(f'(x) - f'(y))
+  $
+]
