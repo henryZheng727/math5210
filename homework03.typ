@@ -81,7 +81,14 @@ is a bounded operator on $C^0 ([a, b])$ (with the $C^0$-norm), but not compact.
 == Problem 4
 Show that if $cal(F) subset.eq C^1 ([a, b])$ is $C^1$-closed, $C^1$-bounded and the collection ${f' : f in cal(F)}$ is equicontinuous, then $cal(F)$ is compact (with respect to the $C^1$-norm). [_Note_: You can use the $C^0$-version of Arzela-Ascoli in your proof]
 #line(length: 100%)
-// todo - problem 4
+
+We argue $cal(F)$ is compact with respect to the $C^1$ norm. Let $(f_n)$ be a sequence in $cal(F)$. We argue $(f_n)$ has a convergent subsequence with respect to the $C^1$ norm.
+
+First, we argue that $cal(F)$ is compact with respect to the $C^0$ norm. It suffices to use the $C^0$ Arzela-Ascoli Theorem. Note that $norm(dot)_(C^1) >= norm(dot)_(C^0)$. Therefore
+1. If $cal(F)$ is $C^1$-closed, then every sequence in $cal(F)$ converges to a point in $F$ with respect to the $C^1$ norm. If it converges with respect to the $C^1$ norm, it must converge with respect to $C^0$.
+2. If $cal(F)$ is $C^1$-bounded, then the $C^1$ norm of every element is bounded above. Then the $C^0$ norm of every element is bounded above, and thus $cal(F)$ is $C^0$-bounded.
+3. todo
+
 #pagebreak()
 
 == Problem 5
