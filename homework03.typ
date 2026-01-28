@@ -75,7 +75,11 @@ $
 $
 is a bounded operator on $C^0 ([a, b])$ (with the $C^0$-norm), but not compact.
 #line(length: 100%)
-// todo - problem 3
+
+Let $f in C^0 ([a, b])$ such that $norm(f) = 1$. Then $sup_(x in [a, b]) abs(f(x)) = 1$. Note that $forall x in [a, b] space f(x) <= 1$. Then $f(x / 2) <= 1$ on $[a, b]$ as well. Therefore $T$ must be a bounded operator.
+
+We argue that $T$ is not compact. Suppose, for the sake of contradiction, that $T$ were compact. Then $overline(T(B(0, 1)))$ must be compact. Then every sequence in $T(B(0, 1))$ must converge to a point in $overline(T(B(0, 1)))$.
+ // todo - problem 3
 #pagebreak()
 
 == Problem 4
