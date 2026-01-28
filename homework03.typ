@@ -84,11 +84,24 @@ Show that if $cal(F) subset.eq C^1 ([a, b])$ is $C^1$-closed, $C^1$-bounded and 
 
 We argue $cal(F)$ is compact with respect to the $C^1$ norm. Let $(f_n)$ be a sequence in $cal(F)$. We argue $(f_n)$ has a convergent subsequence with respect to the $C^1$ norm.
 
-First, we argue that $cal(F)$ is compact with respect to the $C^0$ norm. It suffices to use the $C^0$ Arzela-Ascoli Theorem. Note that $norm(dot)_(C^1) >= norm(dot)_(C^0)$. Therefore
-1. If $cal(F)$ is $C^1$-closed, then every sequence in $cal(F)$ converges to a point in $F$ with respect to the $C^1$ norm. If it converges with respect to the $C^1$ norm, it must converge with respect to $C^0$.
-2. If $cal(F)$ is $C^1$-bounded, then the $C^1$ norm of every element is bounded above. Then the $C^0$ norm of every element is bounded above, and thus $cal(F)$ is $C^0$-bounded.
-3. todo
+We argue that the sequence $(f_n)'$ has a convergent subsequence with respect to the $C^0$ norm.
+#pad(x: 20pt)[
+  Because $cal(F)$ is $C^1$-bounded, then $exists M in RR$ such that $norm(f_n)_(C^1) <= M$; thus, $norm(f'_n)_(C^0) <= M$ for all $M$. Further note that this sequence is equicontinuous, as given in the problem statement. Thus, by the $C^0$ Arzela-Ascoli Theorem, it has a convergent subsequence with respect to the $C^0$ norm.
+]
 
+We further argue the sequence $(f_n)$ has a convergent subsequence with respect to the $C^0$ norm.
+#pad(x: 20pt)[
+  Note that because $cal(F)$ is $C^1$-bounded, then $exists M in RR$ such that $forall n space f'_n <= M$. Then each $(f_n)$ is Lipschitz with a coefficient of $M$; i.e., $(f_n)$ is equicontinuous. Furthermore, because $cal(F)$ is $C^1$-bounded, it must be $C^0$-bounded, so by the Arzela-Ascoli Theorem, it has a convergent subsequence.
+]
+
+Finally, we argue $(f_n)$ has a convergent subsequence with respect to the $C^1$ norm.
+#pad(x: 20pt)[
+  Suppose $(f_n)$ has a convergent subsequence $f_(n_k) -> f$ and $(f_n)'$ has a convergent subsequence $f'_(n_k) -> v$ with respect to the $C^0$-norm. Then note that $v = f'$, and further, the distance metric
+  $
+    norm(f_n - f_(n_k))_(C^1) = norm(f_n - f_(n_k))_(C^0) + norm(f'_n - f'_(n_k))_(C^0)
+  $
+  Because each term becomes arbitrarily small, the overall distance becomes arbitrarily small. Thus $(f_(n_k))$ converges in the $C^1$ norm.
+]
 #pagebreak()
 
 == Problem 5
