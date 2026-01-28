@@ -131,8 +131,12 @@ We argue $cal(F)$ is $C^1$-bounded.
 
 We argue that $cal(F)' = {f' : f in cal(F)}$ is equicontinuous.
 #pad(x: 20pt)[
-  Let $epsilon > 0$ and choose $delta = $ todo. Let $x, y in [a, b] : abs(x - y) <= delta$. Let $f' in cal(F)'$ with $f in cal(F)$.
-  $
-    abs(f'(x) - f'(y))
-  $
+  Note that our definition of equicontinuity is not dependent on the norm of the function; i.e., the set is equicontinuous in $C^1$ if and only if it is equicontinuous in $C^0$. By the Arzela-Ascoli Theorem, it suffices to prove that $cal(F)'$ is compact in $C^0$.
+
+  Note that the image of a compact set must be compact. We know that $cal(F)$ is $C^1$-compact and $C^0$-compact. Further note that $cal(F)'$ is the image of $cal(F)$ under the function $(D(f))(x) = f'(x)$. It thus suffices to show that $D$ is continuous.
+
+  We have previously proven that every linear operator is continuous. Note that the derivative is a linear operator:
+  1. $(f + g)' = f' + g'$
+  2. $(lambda f)' = lambda f'$
+  ...and thus the derivative is continuous.
 ]
