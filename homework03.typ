@@ -78,8 +78,10 @@ is a bounded operator on $C^0 ([a, b])$ (with the $C^0$-norm), but not compact.
 
 Let $f in C^0 ([a, b])$ such that $norm(f) = 1$. Then $sup_(x in [a, b]) abs(f(x)) = 1$. Note that $forall x in [a, b] space f(x) <= 1$. Then $f(x / 2) <= 1$ on $[a, b]$ as well. Therefore $T$ must be a bounded operator.
 
-We argue that $T$ is not compact. Suppose, for the sake of contradiction, that $T$ were compact. Then $overline(T(B(0, 1)))$ must be compact. Then every sequence in $T(B(0, 1))$ must converge to a point in $overline(T(B(0, 1)))$.
- // todo - problem 3
+We argue that $T$ is not compact. It suffices to find a sequence in $T(B(0, 1))$ that has no convergent subsequence.
+#pad(x: 20pt)[
+  Let $f_n (x) = cos(n x)$. This has no convergent subsequence; as $n$ gets infinitely large, the sequence oscillates rapidly, and will never converge. Note that $T(f_n) = cos(n/2 x)$, which suffers from the same problem.
+]
 #pagebreak()
 
 == Problem 4
