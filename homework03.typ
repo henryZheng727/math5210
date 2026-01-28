@@ -101,11 +101,15 @@ We argue $cal(F)$ is $C^1$-closed. This has been proved in class: every compact 
 
 We argue $cal(F)$ is $C^1$-bounded.
 #pad(x: 20pt)[
-  Let $f in F$. Then $norm(f)_(C^1) = norm(f')_(C^0) + norm(f)_(C^0)$.
-
-  Note that because $norm(dot)_(C^1) >= norm(dot)_(C^0)$, then $cal(F)$ being $C^1$-bounded implies that $cal(F)$ is $C^0$-bounded; i.e., $exists M' in RR : norm(f)_(C^0) <= M'$.
-
-  Note that because $norm(f)$ todo
+  Fix $f in cal(F)$. Note that because the distance between any two points is finite, then the collection
+  $
+    union.big_(n=1)^infinity B(0, n)
+  $
+  forms an open cover of $cal(F)$. Because $cal(F)$ is compact, given any open cover of $cal(F)$, there exists a finite subcover of $cal(F)$. Then there must exist some $k in NN$ such that
+  $
+    union.big_(n=1)^k B(0, n)
+  $
+  still forms an open cover of $cal(F)$. Then $k$ is an upper bound on the distance between $0$ and $cal(F)$, and thus $cal(F)$ is bounded.
 ]
 
 We argue that $cal(F)' = {f' : f in cal(F)}$ is equicontinuous.
