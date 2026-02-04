@@ -19,7 +19,17 @@ Give an example of a function on $[0, 1]$ which is $theta$-Holder for some $thet
 == Problem 2
 Fix $theta, C > 0$. Show that the set of functions which are $theta$-Holder and for which $C$ is a Holder constant is equicontinuous.
 #line(length: 100%)
-// todo
+
+Name such a set $S$, for convenience.
+
+Let $epsilon > 0$. Choose $delta = (1/C dot epsilon)^(1/theta)$.
+
+Let $x, y in X$ such that $d(x, y) < delta$. Let $f in S$. Then
+$
+  abs(f(x) - f(y)) & <= C d(x, y)^theta \
+  & < C ((1 / C dot epsilon)^(1/theta))^theta \
+  & = epsilon
+$
 #pagebreak()
 
 == Problem 3
