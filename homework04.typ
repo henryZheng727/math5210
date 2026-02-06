@@ -71,7 +71,16 @@ $
 == Problem 3
 Show that if $f: [0, 1] -> RR$ is $theta$-Holder for some $theta > 1$, then $f$ is a constant function. _Hint_: Can you characterize constant functions using derivatives?
 #line(length: 100%)
-// todo
+
+If $f$ is $theta$-Holder for some $theta > 1$, then $exists epsilon$ such that for $x, y in [0, 1]$
+$
+  abs(f(x) - f(y)) <= C dot abs(x - y) dot abs(x - y)^epsilon => & \
+  abs(f(x) - f(y)) / abs(x - y) <= C dot abs(x - y)^epsilon => & \
+  lim_(x -> y) abs((f(x) - f(y))/(x - y)) <= C dot lim_(x -> y) abs(x - y)^epsilon => & \
+  lim_(x -> y) abs((f(x) - f(y))/(x - y)) <= 0 &
+$
+
+By the Mean Value Theorem, then $f'$ is bounded above by $0$, and thus, $f$ is a constant function.
 #pagebreak()
 
 == Problem 4
