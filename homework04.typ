@@ -3,7 +3,7 @@
 #show math.equation.where(block: false): set math.frac(style: "skewed")
 
 #align(center)[
-  = Analysis Fall 2025: Homework 3
+  = Analysis Fall 2025: Homework 4
   Henry Zheng
 ]
 
@@ -81,7 +81,24 @@ $
 $
 then $f$ is continuous if and only if $"var"_n (f) -> 0$ as $n -> infinity$.
 #line(length: 100%)
-// todo
+
+We argue if $f$ is continuous, then $n -> infinity$ implies $"var"_n (f) -> 0$.
+#pad(x: 20pt)[
+  By the sequential definition of continuity, if $x_n -> x$, then $f(x_n) -> f(x)$.
+
+  Let $(x_i), (y_i) in Omega_m$. We are given that $n -> infinity$, and thus, $(x_i)$ and $(y_i)$ both converge to some sequence $(x)$.
+
+  By the sequential definition of continuity, then, $"var"_n (f)$ as $n -> infinity$ will be $sup_(ell((x_i), (y_i)) >= n) abs(f((x)) - f((x))) = 0$.
+]
+
+We argue if $n -> infinity$ implies $"var"_n (f) -> 0$, then $f$ is continuous.
+#pad(x: 20pt)[
+  We again apply the sequential definition of continuity.
+
+  Let $(x_i), (y_i)$ be sequences in $Omega_m$ converging to $(x)$. We then know that $ell((x_i), (y_i)) = infinity$. By assumption, then $"var"_n (f) -> 0$. This must mean that $abs(f((x_i)) - f((y_i))) -> 0$, i.e., $f((x_i))$ and $f((y_i))$ both converge to the same value.
+
+  Finally, it is impossible for $f((x_i))$ and $f((y_i))$ to be anything other than $f((x))$. We have made no assumptions about $(x_i)$ and $(y_i)$, which demonstrates that _all_ sequences converging to $(x)$ will have their image converge. Take the constant sequence consisting only of $(x)$. Obviously, then its image must converge to $f((x))$. Therefore, _every_ such sequence also converges to this point. Therefore, $f$ is continuous.
+]
 #pagebreak()
 
 == Problem 5
