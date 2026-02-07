@@ -6,7 +6,7 @@
   size: 12pt
 )
 
-= Analysis Fall 2025 - Homework 1
+= Analysis Spring 2026 - Homework 1
 *Definition 1*. A _norm_ on a vector space $V$ is a function $norm(dot): V -> RR$ such that
 #enum(
   numbering: "(i)",

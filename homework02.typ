@@ -8,7 +8,7 @@
 
 #show math.equation.where(block: false): set math.frac(style: "skewed")
 
-= Analysis Fall 2025 - Homework 2
+= Analysis Spring 2026 - Homework 2
 If $V$ is a normed vector space, a function $cal(L): V -> RR$ is called a _bounded functional_ if $cal(L)$ is linear (i.e., $cal(L)(v + w) = cal(L)(v) + cal(L)(w)$ and $cal(L)(lambda v) = lambda cal(L)(v)$ and $sup_(norm(v) = 1) abs(cal(L)(v)) < infinity$.
 #pagebreak()
 
