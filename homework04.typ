@@ -3,7 +3,7 @@
 #show math.equation.where(block: false): set math.frac(style: "skewed")
 
 #align(center)[
-  = Analysis Fall 2025: Homework 4
+  = Analysis Spring 2026: Homework 4
   Henry Zheng
 ]
 
@@ -113,7 +113,30 @@ We argue if $n -> infinity$ implies $"var"_n (f) -> 0$, then $f$ is continuous.
 == Problem 5
 Show that $f$ is $theta$-Holder for some $theta > 0$ if and only if there exists some $0 < lambda < 1$ and $C > 0$ such that $"var"_n (f) <= C lambda^n$.
 #line(length: 100%)
-// todo
+
+Suppose that $f$ is $theta$-Holder for some $theta > 0$. Then there exists some $0 < lambda < 1$ and $C > 0$ such that $"var"_n (f) <= C lambda^n$.
+#pad(x: 20pt)[
+  Fix $n in NN$. Let $(x), (y) in Omega_m$ such that $ell((x), (y)) >= n$. Because $f$ is $theta$-Holder, then for some $C$ and $theta$,
+  $
+    abs(f((x)) - f((y))) <= C dot d((x), (y))^theta
+  $
+
+  We seek to demonstrate the existence of such a $lambda$ and $C$ in the problem state. Choose $C$ to be the Holder constant for $f$. Note that $d((x), (y)) <= 2^(-n)$, and thus,
+  $
+    abs(f((x)) - f((y))) <= C dot (2^(-theta))^n
+  $
+  Choose $lambda = 2^(-theta)$. Then $"var"_n (f) <= C lambda^n$.
+]
+
+Suppose there exists some $0 < lambda < 1$ and $C > 0$ such that $"var"_n (f) <= C lambda^n$. Then $f$ is $theta$-Holder.
+#pad(x: 20pt)[
+  Fix $n in NN$. Note that for sequences $(x), (y) in Omega_m$ with $ell((x), (y)) >= n$,
+  $
+    abs(f((x)) - f((y))) <= "var"_n (f) <= C lambda^n
+  $
+
+  Note that then $d((x), (y)) <= 2^(-n)$. Choose
+]
 #pagebreak()
 
 == Problem 6
