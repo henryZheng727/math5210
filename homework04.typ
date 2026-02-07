@@ -135,14 +135,29 @@ Suppose there exists some $0 < lambda < 1$ and $C > 0$ such that $"var"_n (f) <=
     abs(f((x)) - f((y))) <= "var"_n (f) <= C lambda^n
   $
 
-  Note that then $d((x), (y)) <= 2^(-n)$. Choose
+  Note that then $d((x), (y)) <= 2^(-n)$.
+
+  I got stuck at this step and couldn't figure out how to proceed, as I can only set an upper bound on $d((x), (y))$, not a lower bound.
 ]
 #pagebreak()
 
 == Problem 6
 If $cal(F)$ is a family of functions and $"var"_n (cal(F)) := sup {"var"_n (f) : f in cal(F)}$, show that $cal(F)$ is equicontinuous if and only if $"var"_n (cal(F)) -> 0$ as $n -> infinity$.
 #line(length: 100%)
-// todo
+
+Assume as $n -> infinity$, then $"var"_n (cal(F)) -> 0$. We argue $cal(F)$ is equicontinuous.
+#pad(x: 20pt)[
+  Let $epsilon > 0$. We may choose a $delta$ to make this uniformly continuous (see below).
+
+  Let $x, y in Omega_m$ such that $d((x), (y)) < delta$. Let $f in cal(F)$.
+
+  Since $"var"_n (cal(F)) -> 0$ as $n -> infinity$, then it must be that $"var"_n (f) -> 0$ as $n -> infinity$. This implies, by Problem 4, that $f$ is continuous. Since each $f$ is continuous, each has a $delta_f$ such that $d((x), (y)) < delta_f => abs(f((x)) - f((y))) < epsilon$. Take a value smaller than each $delta_f$ as our $delta$. Then no matter the $f$, then $abs(f((x)) - f((y))) < epsilon$.
+]
+
+Assume $cal(F)$ is equicontinuous. We argue $"var"_n (cal(F)) -> 0$ as $n -> infinity$.
+#pad(x: 20pt)[
+  It suffices to prove each individual $f$ obeys the property that $"var"_n (f) -> 0$ as $n -> infinity$. Since each $f$ is continuous, this has been proven in Problem 4.
+]
 #pagebreak()
 
 == Problem 7
