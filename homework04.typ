@@ -163,4 +163,27 @@ Assume $cal(F)$ is equicontinuous. We argue $"var"_n (cal(F)) -> 0$ as $n -> inf
 == Problem 7
 For simplicity, assume $m = 2$. Show that if $f_i ((x_n)) = (1 / i) dot sum_(n=0)^(i-1) x_n$, then $f_i$ is continuous for every $i$ and $(f_i)$ is $C^0$-bounded, but $(f_i)$ has no convergent subsequence.
 #line(length: 100%)
-// todo
+
+We argue $(f_i)$ is $C^0$-bounded.
+#pad(x: 20pt)[
+  Note that each $x_n$ may be either $0$ or $1$, and thus, for any $i$,
+  $
+    f_i ((x_n)) = & (1/i) dot sum_(n=0)^(i-1) x_n <= \
+    & (1/i) dot i-1 <= 1
+  $
+  ...and thus each $(f_i)$ is bounded above by $1$.
+]
+
+We argue each $f_i$ is continuous.
+#pad(x: 20pt)[
+  Fix $i$. Let $n -> infinity$. We argue $"var"_n (f_i) -> 0$, which, as per Problem 4, is sufficient to argue $f_i$ is continuous.
+
+  Note
+  $
+    "var"_n (f) = sup_(ell((x_i), (y_i))) abs(f_i ((x_i)) - f_i ((y_i))) <= \
+    sup_(ell((x_i), (y_i))) abs(1/i dot sum_(n=0)^(i-1) (x_n - y_n)) <= \
+  $
+  Note that $1/i$ is fixed. Furthermore, as $n -> infinity$, then $x_n$ and $y_n$ will share more items in common, which means that the summation will go to $0$. Therefore, the overall expression goes to $0$.
+]
+
+I could not figure out how to prove that $(f_i)$ has no convergent subsequence.
