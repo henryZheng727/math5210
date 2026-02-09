@@ -24,7 +24,40 @@ $
 $
 Show that $mu$ is a measure on $X$ with $sigma$-algebra $2^X$. (If $f equiv 1$, $mu$ is called the _counting measure_, and simply counts the number of points in $A$)
 #line(length: 100%)
-// todo
+
+Recall if $cal(A)$ is a $sigma$-algebra on $X$, then a _measure_ on $X$ is a function $M: cal(A) -> RR$ such that
+1. $M(emptyset) = 0$
+2. $M(A) >= 0 space forall A in cal(A)$
+3. $M(union_(i=1)^infinity A_i) = sum_(i=1)^infinity M(A_i)$ whenever $A_i in cal(A)$ are pairwise disjoint
+
+We argue $mu(emptyset) = 0$. Since $emptyset$ is countable, then $mu(emptyset) = sum_(x in emptyset) f(x) = 0$.
+
+We argue $mu(A) >= 0 space forall A in cal(A)$. We exhaustively handle the two cases:
+1. If $A$ is countable, then each $f(x) >= 0$, which means that their summation is also greater than or equal to $0$.
+2. If $A$ is not countable, then $mu(A) = infinity >= 0$.
+
+We argue that $mu(union_(i=1)^infinity A_i) = sum_(i=1)^infinity mu(A_i)$ whenever $A_i in cal(A)$ are pairwise disjoint. We exhaustively handle the two cases:
+1. #block[
+  Assume some $A_i$ is uncountable.
+
+  Then $sum_(i=1)^infinity mu(A_i) = infinity$, even if the other sets are countable, because anything added to infinity is infinity.
+
+  Additionally, $union_(i=1)^infinity A_i$ must be uncountable, as the union of an uncountable set and an arbitrary set is also uncountable. Thus $mu(union_(i=1)^infinity A_i) = infinity$.
+]
+
+2. #block[
+  Assume all $A_i$ are countable.
+
+  Since all $A_i$ are countable, enumerate their common union $x_1, x_2, ..., x_n$. Note that
+  $
+    sum_(i=1)^infinity mu(A_i) = sum_(i=1)^infinity sum_(x in A_i) f(x) = f(x_1) + f(x_2) + ... + f(x_n)
+  $
+  ...because the sets are pairwise disjoint, and thus we do not sum the same point twice. Finally, note that by definition,
+  $
+    mu_(union_(i=1)^infinity A_i) = sum_(x in union_(i=1)^infinity A_i) f(x) = f(x_1) + f(x_2) + ... + f(x_n)
+  $
+  ...and thus the sums are equal.
+]
 #pagebreak()
 
 == Problem 3
