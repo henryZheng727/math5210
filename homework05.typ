@@ -63,7 +63,44 @@ We argue that $mu(union_(i=1)^infinity A_i) = sum_(i=1)^infinity mu(A_i)$ whenev
 == Problem 3
 Show that if $f : X -> Y$ is a continuous map between metric spaces and $A subset.eq Y$ is Borel, then $f^(-1) (A)$ is Borel. [_Hint_: You may use that the preimage of an open set is open for continuous maps]
 #line(length: 100%)
-// todo
+
+Recall the collection of Borel sets is the smallest $sigma$-algebra of sets that contains all the open sets. Additionally, recall a collection of sets $cal(A)$ is called a $sigma$-algebra of subsets of $X$ if
+1. $emptyset in cal(A)$
+2. $B in cal(A) => X \\ B in cal(A)$
+3. $A_1, A_2, ... in cal(A) => union_(i=1)^infinity A_i in cal(A)$
+
+Define inductively the Borel sets of $Y$:
+1. $B_0 = {x in 2^Y : x "is open"}$
+2. $B_(i+1) = {x = b_1 union b_2 "for" b_1, b_2 in B_i} union {x = Y \\ b "for" b in B_i}$
+...and note that a set $A subset.eq Y$ is Borel if and only if
+$
+  A in union.big_(i=0)^infinity B_i
+$
+
+We prove that the inverse image of a Borel set is also a Borel set. It suffices to inductively argue the two propositions below.
+
+First, we argue that the inverse image of every $A in B_0$ is a Borel set.
+#pad(x: 20pt)[
+  Note that every $A in B_0$ is open. Then the inverse image $f^(-1) (A)$ must be an open set, and thus is a Borel set by definition.
+]
+
+Secondly, we argue that if the inverse image of every $A_i in B_i$ is a Borel set, then the inverse image of every $A_(i+1) in B_(i+1)$ is a Borel set.
+#pad(x: 20pt)[
+  Let $A_(i+1) in B(i+1)$. By exhaustion, $A_(i+1)$ may either be from the left or the right set. We handle each case.
+
+  Assume that $A_(i+1) = B_1 union B_2$ for $B_1, B_2 in B_i$. We have previously proven that the inverse image of a union is the union of the inverse images. Then
+  $
+    f^(-1) (A_(i+1)) = f^(-1) (B_1 union B_2) = f^(-1) (B_1) union f^(-1) (B_2)
+  $
+  ...and by our inductive assumption, both $f^(-1) (B_1)$ and $f^(-1) (B_2)$ are Borel, and thus their union must be Borel.
+
+  Assume $A_(i+1) = Y \\ B$ for $B in B_i$. Since set difference is preserved across preimage,
+  $
+    f^(-1) (A_(i+1)) = f^(-1) (Y \\ B) = f^(-1) (Y) \\ f^(-1) (B) = X \\ f^(-1) (B)
+  $
+  ...and because $f^(-1) (B)$ is Borel, then $X \\ f^(-1) (B)$ is Borel.
+]
+
 #pagebreak()
 
 == Problem 4
