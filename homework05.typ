@@ -163,4 +163,5 @@ $
 $
 That is, we remove the an open interval of length $ell_k (b_(i k) - a_(i k))$ from each of the intervals in $C_k$. #footnote[This is the middle-thirds Cantor set when $ell_k equiv 1/3$.] Find the outer measure of $C = inter_(k=0)^infinity C_k$ in terms of the sequence $(ell_i)$, and show that for every $lambda in [0, 1)$, there is some sequence for which the outer measure of $C$ is $lambda$.
 #line(length: 100%)
-// todo
+
+I spent a while thinking about this problem and could not figure out how to solve it. Unfortunately, I'll have to turn in an incomplete submission.
