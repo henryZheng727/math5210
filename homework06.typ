@@ -17,7 +17,23 @@ Throughout, $m^*$ denotes Lebesgue outer measure and $m$ denotes Lebesgue measur
 == Problem 1
 Show that if $m^* (A) = 0$, then $A$ is measurable.
 #line(length: 100%)
-// todo
+
+Let $B in RR$. As noted above, it suffices to show that
+$
+  m^* (B) >= m^* (B inter A) + m^* (B \\ A)
+$
+
+We proceed via two applications of monotonicity. Recall that if $X subset.eq Y$, then $m^* (X) <= m^* (Y)$.
+
+Note that $B inter A subset.eq A$. Then $m^* (B inter A) <= m^* (A) = 0$. Since measure must be non-negative, then $m^* (B inter A) = 0$.
+
+Note that $B \\ A subset.eq B$. Then $m^* (B \\ A) <= m^* (B)$.
+
+Finally, we conclude that
+$
+  & m^* (B inter A) + & m^* (B \\ A) & = \
+  & 0 + & m^* (B \\ A) & <= m^* (B)
+$
 #pagebreak()
 
 == Problem 2
