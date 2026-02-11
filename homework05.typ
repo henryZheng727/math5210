@@ -14,7 +14,25 @@ Show that the following sets are Borel (Challenge: Determine which are open and/
 2. For a fixed $lambda > 0$, ${(x_n) in Omega_m : 1/i sum_(n=1)^i x_n >= lambda "for some" i in NN}$
 3. ${x in RR : "there exist sequences" n_k -> infinity, space q_k -> infinity in NN "such that" 2^(n_k) x - q_k -> 0}$
 #line(length: 100%)
-// todo
+
+${(x, y) in RR^2 : exists C > 0 space abs(k x - ell y) < C / (abs(k) + abs(ell)) "for infinitely many pairs" (k, ell) in ZZ^2}$
+#pad(x: 20pt)[
+  It suffices to prove that the set is the union of countably many closed sets. Note that the set can be expressed as a union of lines, where each $(k, ell) in ZZ^2$ defines a line. Each line is obviously closed.
+
+  Furthermore, since the set of pairs $(k, ell) in ZZ^2$ is countable, then this set is the union of countably many lines. Then the set is the union of countably many closed sets, and thus Borel.
+]
+
+For a fixed $lambda > 0$, ${(x_n) in Omega_m : 1/i sum_(n=1)^i x_n >= lambda "for some" i in NN}$
+#pad(x: 20pt)[
+  We use a similar approach as the previous set.
+
+  Recall that the inverse image of a closed set is also closed. Further note that this set has a bijection with lines in $RR^i$. As previously argued, lines are closed, and thus, this set must be closed, and thus Borel.
+]
+
+${x in RR : "there exist sequences" n_k -> infinity, space q_k -> infinity in NN "such that" 2^(n_k) x - q_k -> 0}$
+#pad(x: 20pt)[
+  Let $n_k -> infinity$. Then choose $q_k = 2^(n_k) x$. Obviously, then $q_k -> infinity$, and furthermore, $2^(n_k) x - q_k = 0 -> 0$. Therefore, this simply evaluates to $RR$. Since $RR$ is open, it must be Borel.
+]
 #pagebreak()
 
 == Problem 2
