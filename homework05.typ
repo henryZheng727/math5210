@@ -100,7 +100,6 @@ Secondly, we argue that if the inverse image of every $A_i in B_i$ is a Borel se
   $
   ...and because $f^(-1) (B)$ is Borel, then $X \\ f^(-1) (B)$ is Borel.
 ]
-
 #pagebreak()
 
 == Problem 4
@@ -110,7 +109,25 @@ $
 $
 [_Hint_: Find a way to turn it into a disjoint union and use the property of a measure]
 #line(length: 100%)
-// todo
+
+Assume, without loss of generality, that each $A_i$ is disjoint. We construct a family of sets $B_i$ such that each $B_i$ is disjoint, and $mu(union_(i=1)^n A_i) = mu(union_(i=1)^n B_i)$.
+#pad(x: 20pt)[
+  We use the same strategy as demonstrated in class. Define
+  $
+    & B_1 = A_1, \
+    & B_i = A_i \\ (union.big_(j=1)^(i-1) A_j)
+  $
+  ...then $forall i space B_i$ is measurable, since it is constructed through finite unions and complements. Furthermore,
+  $
+    & union.big_(i=1)^n A_i = union.big_(i=1)^n B_i => \
+    & mu(union.big_(i=1)^n A_i) = mu(union.big_(i=1)^n B_i)
+  $
+]
+
+Then
+$
+  lim_(n -> infinity) mu(union.big_(i=1)^n B_i) = lim_(n -> infinity) sum_(i=1)^n mu(B_i) = sum_(i=1)^infinity mu(B_i) = mu(union.big_(i=1)^infinity B_i)
+$
 #pagebreak()
 
 == Problem 5
