@@ -39,11 +39,27 @@ $
 == Problem 2
 Show that if $A subset.eq RR$ and there exists a measurable set $B$ containing $A$ such that $m^* (B \\ A) = 0$, then $A$ is measurable. _Note_: This finishes the proof of the measurability criterion from class.
 #line(length: 100%)
-// todo
+
+We use the fact that the measurable sets form a $sigma$-algebra, which means they are closed under countable union and intersection.
+
+By assumption, $B$ is a measurable set. By Problem 1, $B \\ A$ is a measurable set. Then
+1. Because the measurable sets form a $sigma$-algebra, then $RR \\ (B \\ A)$ is measurable.
+2. For the same reason, $B inter (RR \\ (B \\ A))$ is measurable.
+
+Finally, we argue that $B inter (RR \\ (B \\ A)) = A$. Note that by assumption, $A subset.eq B$. Then
+$
+  & B inter (RR \\ (B \\ A)) = \
+  & B inter (B \\ A)^C = \
+  & B inter (B inter A^C)^C = \
+  & B inter (B^C union A) = \
+  & (B inter B^C) union (B inter A) = \
+  & (B inter A) = \
+  & A
+$
 #pagebreak()
 
 == Problem 3
-Let $A subset.eq RR$ b ea subset of positive, finite measure. Define the _conditional measure_ on $A$ to be the measure on the $sigma$-algebra of Lebesgue measurable subsets by
+Let $A subset.eq RR$ be a subset of positive, finite measure. Define the _conditional measure_ on $A$ to be the measure on the $sigma$-algebra of Lebesgue measurable subsets by
 $
   mu_A (B) = (m(B inter A))/(m(A))
 $
