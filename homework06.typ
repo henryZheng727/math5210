@@ -65,7 +65,44 @@ $
 $
 Show that $mu_A$ is a measure on $RR$ defined on the Lebesgue $sigma$-algebra and $mu_A (RR) = mu_A (A) = 1$.
 #line(length: 100%)
-// todo
+
+Let $cal(B)$ be the Lebesgue measurable subsets. Recall that in order to be a measure, we must obey the following properties:
+1. $mu_A (emptyset) = 0$
+2. $mu_A (B) >= 0$ for all $B in cal(B)$
+3. If $A_1, ..., A_n$ are pairwise disjoint, then $mu_A (union_(i=1)^infinity A_i) = sum_(i=1)^infinity mu_A (A_i)$
+
+We argue $mu_A (emptyset) = 0$. By assumption, $m$ is a measure already, so note that $m(emptyset) = 0$.
+$
+  mu_A (emptyset) = m(emptyset inter A) / m(A) = 0 / m(A) = 0
+$
+
+We argue $mu_A (B) >= 0$ for all $B in cal(B)$.
+#pad(x: 20pt)[
+  By assumption, $m$ is a measure, and thus $m(B union A)$ and $m(A)$ are both non-negative. Then $mu_A (B) = m(B union A) / m(A)$ must be non-negative.
+]
+
+We argue if $A_1, ..., A_n$ are pairwise disjoint, then $mu_A (union_(i=1)^infinity A_i) = sum_(i=1)^infinity mu_A (A_i)$.
+#pad(x: 20pt)[
+  $
+    & mu_A (union_(i=1)^infinity A_i) = \
+    & m((union_(i=1)^infinity A_i) inter A) / m(A) = \
+    & m(union_(i=1)^infinity (A_i inter A)) / m(A) = \
+    & sum_(i=1)^infinity m(A_i inter A) / m(A) = \
+    & sum_(i=1)^infinity mu_A (A_i)
+  $
+]
+
+We argue $mu_A (RR) = mu_A (A) = 1$.
+#pad(x: 20pt)[
+  First,
+  $
+    mu_A (RR) = m(RR inter A) / m(A) =  m(A) / m(A) = 1
+  $
+  Secondly,
+  $
+    mu_A (A) = m(A inter A) / m(A) = m(A) / m(A) = 1
+  $
+]
 #pagebreak()
 
 == Problem 4
