@@ -122,7 +122,36 @@ If $mu$ is a measure defined on the Borel $sigma$-algebra, we say that $x in "su
 == Problem 5
 Show that $"supp"(mu)$ is a closed set for every measure $mu$ defined on the Borel $sigma$-algebra. _Hint_: Show instead that $RR \\ "supp"(mu)$ is open.
 #line(length: 100%)
-// todo
+
+Let $mu$ be a measure defined on the Borel $sigma$-algebra. We argue that $RR \\ "supp"(mu)$ is open.
+
+Let $x in RR \\ "supp"(mu)$. Then, by the negation of the definition of $"supp"$,
+$
+  exists epsilon > 0 "such that" mu((x - epsilon, x + epsilon)) = 0
+$
+
+Recall that a set $S$ is open if and only
+$
+  forall x in S space exists epsilon > 0 "such that" B(x, epsilon) subset.eq S
+$
+Note that $B(x, epsilon) = (x - epsilon, x + epsilon)$. Thus, it suffices to prove $(x - epsilon, x + epsilon) subset.eq RR \\ "supp"(mu)$.
+
+Let $y in (x - epsilon, x + epsilon)$. We argue then that $y in RR \\ "supp"(mu)$. Since $(x - epsilon, x + epsilon)$ is open, then
+$
+  exists epsilon' > 0 "such that" (y - epsilon', y + epsilon') subset.eq (x - epsilon, x + epsilon)
+$
+Then
+$
+  & (y - epsilon', y + epsilon') subset.eq (x - epsilon, x + epsilon) => \
+  & mu((y - epsilon', y + epsilon')) <= mu((x - epsilon, x + epsilon)) => \
+  & mu((y - epsilon', y + epsilon')) <= 0 => \
+  & mu((y - epsilon', y + epsilon')) = 0
+$
+...which means that for our arbitrary $y$,
+$
+  exists epsilon' > 0 "such that" mu((y - epsilon, y + epsilon)) = 0
+$
+...and thus $y in RR \\ "supp"(mu)$.
 #pagebreak()
 
 == Problem 6
