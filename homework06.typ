@@ -111,12 +111,54 @@ If $mu$ is a measure defined on the Borel $sigma$-algebra, we say that $x in "su
   numbering: "(1)",
   [$m$ (Lebesgue measure)],
   [$delta_x$ (Recall $delta_x (A) = 1$ if $x in A$ and $0$ otherwise)],
-  $mu_(0, 1)$,
+  $mu_((0, 1))$,
   [$mu_A$ where $A = C union [1, 2]$, where $C$ is the middle-thirds Cantor set],
-  [$mu_A$ where $A = union_(n=1)^infinity [1/(2 dot 4^n), 1/(4^n)$],
+  [$mu_A$ where $A = union_(n=1)^infinity [1/(2 dot 4^n), 1/(4^n)]$],
 )
 #line(length: 100%)
-// todo
+
+We argue $"supp"(m) = RR$.
+#pad(x: 20pt)[
+  Let $x in RR$ and $epsilon > 0$. Then $m((x - epsilon, x + epsilon)) = 2 times epsilon > 0$.
+
+  Let $y in.not RR$. Then trivially, $y$ does not exist, and $m((y - epsilon, y + epsilon)) = m(emptyset) = 0$ for any $epsilon$.
+]
+
+We argue $"supp"(delta_x) = {x}$.
+#pad(x: 20pt)[
+  Let $z in {x}$, i.e., $z = x$. Let $epsilon > 0$. Note that by definition, $x in (x - epsilon, x + epsilon)$, and therefore, $mu((x - epsilon, x + epsilon)) = 1 > 0$.
+
+  Let $y in RR \\ {x}$, i.e., $y != x$. We argue $exists epsilon > 0$ such that $mu((y - epsilon, y + epsilon)) = 0$. Specifically, let $epsilon = (x - y) / 2$. Then it must be impossible for $x in (y - epsilon, y + epsilon)$ (as the interval strictly has endpoints closer than $x$). Then $mu((y - epsilon, y + epsilon)) = 0$.
+]
+
+We argue $"supp"(mu_((0, 1))) = [0, 1]$.
+#pad(x: 20pt)[
+  Let $x in [0, 1]$. Let $epsilon > 0$. Then
+  $
+    & mu_((0, 1)) ((x - epsilon, x + epsilon)) = \
+    & m((x - epsilon, x + epsilon) inter (0, 1)) / m((0, 1)) = \
+    & m((x - epsilon, x + epsilon) inter (0, 1))
+  $
+  Note that because $x in [0, 1]$, then $(x - epsilon, x + epsilon) inter (0, 1) != emptyset$, and in particular, it must be an interval of non-zero length. Then the measure must be larger than $0$.
+
+  Let $y in.not [0, 1]$. We show $exists epsilon > 0$ such that $mu((y - epsilon, y + epsilon)) = 0$. Specifically, choose
+  $
+    epsilon = cases(
+      -y/2 "if" y < 0,
+      (y-1)/2 "if" y > 1
+    )
+  $
+  Then, by our choice of $epsilon$, the distance between $y$ and the endpoints of $(0, 1)$ is always larger than $epsilon$, and thus $(y - epsilon, y + epsilon) inter (0, 1) = emptyset ==> mu_((0, 1)) (y - epsilon, y + epsilon) = 0$.
+]
+#pagebreak()
+
+We argue $"supp"(mu_A)$ where $A = C union [1, 2]$ (where $C$ is the middle-thirds Cantor set) is $A$.
+#pad(x: 20pt)[
+]
+
+We argue $"supp"(mu_A)$ where $A = union_(n=1)^infinity [1/(2 dot 4^n), 1/(4^n)]$ is $A union {0}$.
+#pad(x: 20pt)[
+]
 #pagebreak()
 
 == Problem 5
