@@ -204,4 +204,39 @@ If $X$ is a metric space, a function $f: X -> RR$ is called _upper semicontinuou
   [Show that if $f$ is upper semicontinuous, then it is measurable.],
 )
 #line(length: 100%)
-// todo
+
+We argue that $f(x) = floor(x)$ is upper semicontinuous, but not continuous.
+#pad(x: 20pt)[
+  First, we note that $f(x)$ is not continuous. This was proven in a previous analysis class. It has jump discontinuities at every integer value of $x$.
+
+  Secondly, we argue that $f(x)$ is upper semicontinuous. Let $epsilon > 0$, and let $x in X$. Choose
+  $
+    delta < min(d(x, floor(x)), d(x, floor(x + 1)))
+  $
+  Then note that $forall y : d(x, y) < delta$, then
+  $
+    & floor(x) = floor(y) => \
+    & f(x) = f(y) => \
+    & f(y) < f(x) + epsilon
+  $
+]
+
+We argue that if $f$ is upper semicontinuous, then it is measurable.
+#pad(x: 20pt)[
+  As discussed in class, we may equivalently prove that $f^(-1) ([a, infinity))$ is measurable $forall a in RR$. Note that if $f^(-1) ((-infinity, a))$ is measurable, then $f^(-1) ([a, infinity))$ is measurable.
+
+  Fix $a in RR$ and let $x in f^(-1) ((-infinity, a)) = {x in X : f(x) < a}$. We argue that this set is open and thus measurable. By an application of the open ball definition, it suffices to prove that if $d(x, y) < delta$ for some $delta > 0$, then $y in f^(-1) ((-infinity, a))$.
+
+  By our definition of upper semicontinuity, we are given that
+  $
+    forall epsilon' > 0 space exists delta > 0 "such that" d(x, y) < delta => f(y) < f(x) + epsilon
+  $
+
+  Then choose $epsilon' = a - f(x)$. Then $exists delta$ such that
+  $
+    & d(x, y) < delta => \
+    & f(y) < f(x) + epsilon => \
+    & f(y) < f(x) + a - f(x) => f(y) < a
+  $
+  ...which implies that $y in f^(-1) ((-infinity, a))$.
+]
