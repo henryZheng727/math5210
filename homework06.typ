@@ -154,10 +154,29 @@ We argue $"supp"(mu_((0, 1))) = [0, 1]$.
 
 We argue $"supp"(mu_A)$ where $A = C union [1, 2]$ (where $C$ is the middle-thirds Cantor set) is $A$.
 #pad(x: 20pt)[
+  Let $x in A$, and let $epsilon > 0$. We argue $mu_A ((x - epsilon, x + epsilon)) > 0$. We note that $A$ is the union of intervals, since $x in A$, then the interval $(x - epsilon, x + epsilon)$ must have non-empty intersection with $A$; and furthermore, $(x - epsilon, x + epsilon) inter A$ will take the form of a union of intervals (by DeMorgan's Law). Then the conditional measure must be nonzero.
+
+  Let $y in.not A$. We argue $exists epsilon > 0$ such that $mu_A ((y - epsilon, y + epsilon)) = 0$. It suffices to prove that $(y - epsilon, y + epsilon) inter A = emptyset$. We argue that $A$ is closed, and thus $A'$ is open. Then there must exist an open ball centered at $y$ which is contained in $A'$, and thus has no intersection with $A$. Thus, it suffices to prove $A$ is closed.
+
+  Note that $A$ is the union of the Cantor set and a closed interval. The union of two closed sets is closed, and the closed interval is obviously closed, so it suffices to prove the Cantor set is closed. By DeMorgan's law, the Cantor set is the complement of the countable union of open intervals. The countable union of open intervals is open, and thus its complement is closed.
 ]
 
 We argue $"supp"(mu_A)$ where $A = union_(n=1)^infinity [1/(2 dot 4^n), 1/(4^n)]$ is $A union {0}$.
 #pad(x: 20pt)[
+  Let $x in A union {0}$, and let $epsilon > 0$. We argue $mu_A ((x - epsilon, x + epsilon)) > 0$. We exhaustively handle the cases: $x in A$ and $x = 0$.
+  #pad(x: 20pt)[
+    Suppose $x in A$. Then $(x - epsilon, x + epsilon) inter A != emptyset$. Furthermore, as $A$ is the union of intervals, then $(x - epsilon, x + epsilon union A$ must also be the union of some intervals. Then the conditional measure must be non-zero.
+
+    Suppose $x = 0$. Note that the left interval approaches $0$ as $n -> infinity$; thus, $0$ is a limit point for $A$. Then any interval centered at $0$ will have non-empty intersection with $A$ in the form of some union of intervals; thus the conditional measure is non-zero.
+  ]
+
+  Let $y in.not A union {0}$. We argue $exists epsilon$ such that $mu_A ((y - epsilon, y + epsilon)) > 0$. Similarly to the previous question, it suffices to prove that $A union {0}$ is closed. Recall that a set is closed if and only if it contains all of its limit points. We argue ${0}$ is the only limit point of $A$ not contained in $A$, and thus, $A union {0}$ is closed.
+
+  We examine all cases of points not contained in $A$. There are several possibilities:
+  1. If the point $z < 0$ or $z > 1/4$, then it is not a limit point, as we can easily construct an interval that has no overlap with $A$ at all.
+  2. If the point is in one of the "gaps" between the intervals of $A$, then because each interval is closed and disjoint, each gap is open and thus has a neighborhood that does not overlap with $A$.
+
+  The only remaining points are $0$ and points in $A$. Then those must be the only possible limit points, and thus $A union {0}$ is closed.
 ]
 #pagebreak()
 
