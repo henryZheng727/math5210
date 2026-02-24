@@ -6,13 +6,41 @@
   = Analysis Spring 2026: Homework 6
   Henry Zheng
 ]
+#pagebreak()
 
 == Problem 1
 If $f$ and $g$ are measurable functions, show that $h(x) := max{f(x), g(x)}$ is measurable. Conclude that if $f: E -> RR$ is measurable, then there exist nonnegative measurable functions $f_+$ and $f_-$ such that $f = f_+ - f_-$. Hint: Write $f_+ = max{f(x), 0}$ and find a similar expression for $f_-$.
 #line(length: 100%)
-// todo
-#pagebreak()
 
+We argue if $f$ and $g$ are measurable, $h(x) := max{f(x), g(x)}$ is measurable.
+#pad(x: 20pt)[
+  Let $a in RR$. Note that it suffices to prove that $h^(-1) ((a, infinity))$ is measurable. Further note that
+  $
+    h^(-1) ((a, infinity)) = {x : max{(f(x), g(x))} > a} = \
+    f^(-1) ((a, infinity)) union g^(-1) ([a, infinity))
+  $
+  ...and as both are measurable, and the finite union of measurable sets is measurable, then $h^(-1) ((a, infinity))$ is measurable.
+]
+
+We argue if $f$ is measurable, there exist nonnegative measurable functions $f_+$ and $f_-$ such that $f = f_+ - f_-$.
+#pad(x: 20pt)[
+  Note that the zero function is de-facto measurable.
+
+  Let $f_+ = max{f(x), 0}$. Let $f_- = max{-f(x), 0}$. We argue $f = f_+ - f_-$.
+
+  We exhaustively handle all cases (i.e., $f(x) < 0$ and $f(x) >= 0$).
+
+  Suppose $f(x) < 0$. Then
+  $
+    f_+ (x) - f_- (x) = max{f(x), 0} + max{-f(x), 0} = 0 + f(x) = f(x)
+  $
+
+  Suppose $f(x) >= 0$. Then
+  $
+    f_+ (x) - f_- (x) - max{f(x), 0} + max{-f(x), 0} = f(x) - 0 = f(x)
+  $
+]
+#pagebreak()
 
 == Problem 2
 Show that the set of simple functions on a measurable set $E$ is closed under addition and multiplication, and that
