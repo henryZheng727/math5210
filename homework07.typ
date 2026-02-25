@@ -48,9 +48,53 @@ $
   integral_E phi.alt + psi dif m = integral_E phi.alt dif m + integral_E psi dif m
 $
 #line(length: 100%)
-// todo
-#pagebreak()
 
+We argue the set of simple functions on a measurable set $E$ is closed under addition.
+#pad(x: 20pt)[
+  Let $f$ and $g$ be simple functions on $E$. Then ${f(x) : x in E}$ and ${g(x) : x in E}$ both take finitely many values. Consequently,
+  $
+    abs({f(x) + g(x) : x in E}) <= abs({f(x) : x in E} times {g(x) : x in E})
+  $
+  ...which is also finite.
+]
+
+We argue the set of simple functions on a measurable set $E$ is closed under multiplication.
+#pad(x: 20pt)[
+  Let $f$ and $g$ be simple functions on $E$. Then ${f(x) : x in E}$ and ${g(x) : x in E}$ both take finitely many values. Consequently,
+  $
+    abs({f(x) dot g(x) : x in E}) <= abs({f(x) : x in E} times {g(x) : x in E})
+  $
+  ...which is also finite.
+]
+
+We argue that $integral_E phi.alt + psi dif m = integral_E phi.alt dif m + integral_E psi dif m$.
+#pad(x: 20pt)[
+  Let
+  $
+    phi.alt = sum_(i=1)^n a_phi.alt_i chi_A_i
+    quad quad
+    psi = sum_(i=1)^n a_psi_i chi_B_i
+  $
+
+  We've previously defined integration of a simple function.
+  $
+    integral_E sum a_i chi_i dif m = sum a_i m(A_i)
+  $
+
+  Finally, note that
+  $
+    integral_E phi.alt + psi = sum phi.alt(x) + psi(x) dot m(C_i)
+  $
+  ...where $C_i$ is the interval at which $phi.alt + psi$ retains its respective value for $i$. Because of the additivity of the summation, it thus suffices to prove that
+  $
+    & sum phi.alt(x) m(C_i) = sum phi.alt(x) m(A_i) <==> \
+    & sum m(C_i) = sum m(A_i) <==> \
+    & union C_i = union A_i
+  $
+  ...which is definitionally true, as they both cover $E$.
+
+]
+#pagebreak()
 
 == Problem 3
 If $(X, cal(A), mu)$ is a measure space such that $mu(X) < infinity$, similarly define the class of simple functions as finite combinations of characteristic functions of measurable sets, and the upper and lower integral of a nonnegative, bounded function $f$ as
