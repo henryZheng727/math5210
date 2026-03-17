@@ -3,7 +3,7 @@
 #show math.equation.where(block: false): set math.frac(style: "skewed")
 
 #align(center)[
-  = Analysis Spring 2026: Homework 6
+  = Analysis Spring 2026: Homework 7
   Henry Zheng
 ]
 #pagebreak()
