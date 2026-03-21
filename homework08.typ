@@ -15,7 +15,26 @@ _Remark 1_. You can replace increasing by differentiable and still be able to pr
 
 On the other hand, Problem 1 fails without the increasing condition: there are continuous curves $gamma: [0, 1] -> [0, 1]^2$ which are onto (and hence their image has positive 2-dimensional Lebesgue measure). Look up _Peano curves_ or _space-filling curves_.
 #line(length: 100%)
-// todo
+
+First, we partition $[0, 1]$ into break points ${x_i}_(i=0)^n$ such that $gamma_1 (x_(i+1)) - gamma_1 (x_i) = 1/n$. We argue such a partition exists.
+#pad(x: 20pt)[
+  We fix $n$, and prove via induction on $i$.
+
+  First, suppose $i = 0$, and note that $gamma_1 (x_0) = gamma_1 (0) = 0$, and furthermore, $gamma_1 (x_n) = gamma_1 (1) = 1$. Therefore, by the intermediate value theorem, $exists i + 1$ such that $gamma_1 (x_(i+1)) - gamma_1 (x_i) = 1/n$.
+
+  Secondly, suppose we have built the partition up to $i = m$. We argue that there exists a partition from $[m, n]$ which continues to obey the property. This again is a simple application of the intermediate value theorem; as we have partitioned the space up to $m$, then there exists $(n - m) / n$ area along $gamma_1$ which is yet to be partitioned.
+]
+
+Secondly, we calculate the sum of the area of the boxes defined by the previous partition.
+#pad(x: 20pt)[
+  The sum of the boxes must be, by definition,
+  $
+    & sum_(i=0)^(n) (gamma_1 (x_(i+1)) - gamma_1 (x_i)) (gamma_2 (x_(i+1)) - gamma_2 (x_i)) = \
+    & sum_(i=0)^(n) (1/n) (gamma_2 (x_(i+1)) - gamma_2 (x_i)) = \
+    & 1/n sum_(i=0)^(n) gamma_2 (x_(i+1)) - gamma_2 (x_i)
+  $
+  ...and note that because the curve is continuous and increasing from $(0, 0)$ to $(1, 1)$, then the sum of the $y$-coordinates must be equal to $1$. Therefore, the sum of the area of the boxes must be $1/n$. As $n$ approaches infinity, the sum of the area of the boxes approaches $0$.
+]
 #pagebreak()
 
 == Problem 2
