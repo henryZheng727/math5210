@@ -40,7 +40,51 @@ Secondly, we calculate the sum of the area of the boxes defined by the previous 
 == Problem 2
 Let $(X, cal(A), mu)$ be a measure space and $pi : X -> Y$ be a surjective function. Show that $pi_* cal(A) := {B subset Y : pi^(-1) (B) in cal(A)}$ is a $sigma$-algebra on $Y$ and $pi_* mu$ defined by $pi_* mu (B) := mu (pi^(-1) B)$ is a measure defined on $pi_* cal(A)$ (called the _pushforward of_ $mu$).
 #line(length: 100%)
-// todo
+
+We argue that $Y in pi_* cal(A)$. This is a condition for $pi_* cal(A)$ being a $sigma$-algebra.
+#pad(x: 20pt)[
+  It suffices to prove $pi^(-1) (Y) in cal(A)$. However, by the definition of a function, $pi^(-1) (Y) = X$, and $X in cal(A)$ by definition.
+]
+
+We argue that $B in pi_* cal(A) => Y without B in pi_* cal(A)$. This is a condition for $pi_* A$ being a $sigma$-algebra.
+#pad(x: 20pt)[
+  Let $pi^(-1) (B) in cal(A)$. Then $pi^(-1) (Y without B) = pi^(-1) (Y) without pi^(-1) (B) = X without pi^(-1) (B)$. By the definition of a $sigma$-algebra, $X without pi^(-1) (B) in cal(A)$.
+]
+
+We argue that $B_1, B_2, ... in pi_* cal(A) => union_(i=1)^infinity B_i in pi_* cal(A)$. This is a condition for $pi_* A$ being a $sigma$-algebra.
+#pad(x: 20pt)[
+  Let $B_1, B_2, ... in pi_* cal(A)$. Then
+  $
+    pi^(-1) (B_1 union B_2 union ...) = pi^(-1) (B_1) union pi^(-1) (B_2) union ...
+  $
+  ...and each $pi^(-1) (B_i) in cal(A)$, and thus their union is in $cal(A)$.
+]
+
+I'm going to assume that the problem statement is meant to define $pi_* mu(B) := mu(pi^(-1) (B))$, as it would make little sense to define it otherwise.
+
+We argue that $pi_* mu(emptyset) = 0$. This is a condition for $pi_* mu$ being a measure.
+#pad(x: 20pt)[
+  $pi_* mu(emptyset) = mu(pi^(-1) (emptyset)) = mu(emptyset) = 0$
+]
+
+We argue that $pi_* mu(A) >= 0 space forall A in pi_* cal(A)$. This is a condition for $pi_* mu(B)$ being a measure.
+#pad(x: 20pt)[
+  Since the value of $pi_* mu(A) = mu(pi^(-1) (B))$, and $mu$ is a measure by assumption, it follows positivity.
+]
+
+We argue that if $B_1, ..., B_n in pi_* mu(B)$ are disjoint, then $pi_* mu(union_(i=1)^infinity B_i) = sum_(i=1)^infinity pi_* mu(B_i)$. This is a condition for $pi_* mu(B)$ being a measure.
+#pad(x: 20pt)[
+  $
+    pi_* mu(union.big_(i=1)^infinity B_i) =
+    mu(pi^(-1) (union.big_(i=1)^infinity B_i)) =
+    mu(union.big_(i=1)^infinity pi^(-1) (B_i))
+  $
+  Since each $B_i$ are pairwise disjoing, then each $pi^(-1) (B_i)$ must also be pairwise disjoint. Therefore,
+  $
+    mu(union.big_(i=1)^infinity pi^(-1) (B_i)) = sum_(i=1)^infinity mu(pi^(-1) (B_i)) = sum_(i=1)^infinity pi_* mu(B_i)
+  $
+]
+
 #pagebreak()
 
 == Problem 3
