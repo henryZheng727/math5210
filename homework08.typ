@@ -53,7 +53,29 @@ $cal(A)_cal(P)$ is an algebra. _Hint_: It may be useful to
 compute $cal(A)_cal(P)$ for some examples, e.g., $cal(P) = {S}$ and
 $cal(P) = {{x} : x in S}$.
 #line(length: 100%)
-// todo
+
+We argue that $S in cal(A)_cal(P)$.
+#pad(x: 20pt)[
+  Let $F = {1, ..., m}$. Then obviously $F subset.eq {1, ..., m}$. Finally, by the problem statement, $S = union_(i in F) P_i$. Therefore, $S in cal(A)_cal(P)$.
+]
+
+We argue that $A in cal(A)_cal(P) => S without A in cal(A)_cal(P)$.
+#pad(x: 20pt)[
+  Let $A in cal(A)_cal(P)$. Then, by definition, $exists F subset.eq {1, ..., m}$ such that $A = union_(i in F) P_i$.
+
+  Recall that $S = union_(i in {1, ..., m}) P_i$. Thus, let $F' = {1, ..., m} without F$, and $F' subset.eq {1, ..., m}$. Finally, note that $S without A = union_(i in F') P_i$, which by definition must be within $cal(A)_cal(P)$.
+]
+
+We argue that $A_1, A_2, ..., in cal(A)_cal(P) => union_(i=1)^infinity cal(A)_cal(P)$.
+#pad(x: 20pt)[
+  Let $A_1, A_2, ..., in cal(A)_cal(P)$. Then by definition, $exists F_1, F_2, ... subset.eq {1, ..., m}$. Thus, by definition, $union_(i=1)^infinity F_i subset.eq {1, ..., m}$. Then
+  $
+    & A_1 union A_2 union ... = \
+    & (union.big_(i in F_1) P_i) union (union.big_(i in F_2) P_i) union ... = \
+    & union.big_(i in F_1 union F_2 union ...) P_i
+  $
+  ...which must be in $cal(A)_cal(P)$ by definition.
+]
 #pagebreak()
 
 == Problem 4
