@@ -107,4 +107,5 @@ The $(p, 1 - p)$-Bernoulli measure is also defined on $Omega_2^+$ in the same wa
 
 _Remark 2_. This shows that there are many different measures on $[0, 1]$, since any Bernoulli measure, not just the $(1/2, 1/2)$, can be pushed forward by $pi$ onto $[0, 1]$. In fact, this is a very small glimpse into how big the space of measures is on $[0, 1]$. There are some other very interesting ones to put there!
 #line(length: 100%)
-// todo
+
+I did not complete this problem, as it was not required.
