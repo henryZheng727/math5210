@@ -11,7 +11,29 @@
 == Problem 1
 Recall the equivalence relation on measurable functions on a measure space $(X, mu, cal(A)): f ~ g$ if and only if there exists a measurable set $A$ such that $mu(X without A) = 0$ and $f|_A = g|_A$. Show that if $f_i ~ g_i$ for all $i in NN$, $f = sum_(i=1)^infinity f_i$ and $g = sum_(i=1)^infinity g_i$, then $f ~ g$.
 #line(length: 100%)
-// todo
+
+We are given that $forall i in NN$, then $f_i ~ g_i$. This means that $forall i in NN$, then there exists $A_i$ such that $mu(X without A_i) = 0$ and $f_i|_(A_i) = g_i|_(A_i)$. We seek to prove that there exists some set $A$ such that $mu(X without A) = 0$ and $f|_A = g|_A$. We prove via construction. Let $A = inter_(i in NN) A_i$.
+
+We argue $mu(X without A) = 0$.
+#pad(x: 20pt)[
+  We note that
+  $
+    mu(X without A) =
+    mu(X without (inter_(i in NN) A_i)) =
+    mu(union_(i in NN) (X without A_i))
+  $
+
+  In a previous homework, from a collection of sets, we constructed another collection such that each set was pairwise disjoint, and their collective union was equivalent. This can be easily achieved by finding all intersections between the sets and "assigning" them to a singular set. We isolate two important facts from this construction.
+  1. There exists a collection of disjoint sets $B_i$ such that $union_(i in NN) B_i = union_(i in NN) (X without A_i)$.
+  2. Because the construction can only ever "remove" from a set, $forall i in NN space B_i subset.eq (X without A_i)$.
+
+  Since $B_i subset.eq (X without A_i)$, and by assumption $mu(X without A_i) = 0$, we may use the monotonicity property of a measure $(C subset D => m(C) <= m(D))$ to conclude that $mu(B_i) = 0$. By the definition of a measure, $mu(union_(i in NN) B_i) = sum_(i=1)^infinity mu(B_i) = 0$.
+]
+
+We argue $f|_A = g|_A$.
+#pad(x: 20pt)[
+  Let $x in A$. Then, by construction, $forall i in NN space x in A_i$. Each $f_i ~ g_i$, thus, $f_i (x) = g_i (x)$. Therefore, $sum_(i=1)^infinity f_i (x) = sum_(i=1)^infinity g_i (x)$, and thus, $f(x) = g(x)$.
+]
 #pagebreak()
 
 == Problem 2
