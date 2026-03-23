@@ -162,7 +162,43 @@ $
 
 You may take for granted that $nu_0$ is a measure on the $sigma$-algebra of unions of the $P_i$'s. Determine which sets satisfy the Caratheodory measurability criterion for $nu_0$, and prove that your answer is correct. _Hint_: The answer will depend on which of the $p'_i s$ are 0. Which measure do you get when you use $RR = {0} union.sq (bb(R) without {0})$ and $(p_1, p_2) = (1, 0)$?
 #line(length: 100%)
-// todo
+
+We first compute the outer measure $nu_0^*$. We argue that for any $E subset.eq X$,
+$
+  nu_0^* (E) = sum_(i : E sect P_i != emptyset) p_i
+$
+#pad(x: 20pt)[
+  For the upper bound, take the single covering set $A = union.big_(i : E sect P_i != emptyset) P_i$. Then $A in cal(A)$, $E subset.eq A$, and $nu_0 (A) = sum_(i : E sect P_i != emptyset) p_i$.
+
+  For the lower bound, let ${A_j}$ be any cover of $E$ by sets in $cal(A)$, and let $B = union_j A_j in cal(A)$. Since $nu_0$ is a measure, $nu_0 (B) <= sum_j nu_0 (A_j)$. Since $E subset.eq B$ and $B$ is a union of partition elements, every $P_i$ intersecting $E$ must appear in $B$, so $nu_0 (B) >= sum_(i : E sect P_i != emptyset) p_i$. Taking the infimum over all covers gives the result.
+]
+
+We argue that $E subset.eq X$ satisfies the Caratheodory measurability criterion if and only if for all $i$ with $p_i > 0$, either $P_i subset.eq E$ or $P_i sect E = emptyset$. In other words, $E$ may only split partition elements whose weight is $0$.
+
+We argue the forward direction by contrapositive.
+#pad(x: 20pt)[
+  Suppose there exists $i$ with $p_i > 0$ such that both $P_i sect E != emptyset$ and $P_i sect (X without E) != emptyset$. Take $A = P_i$ as a test set. Since $P_i sect E subset.eq P_i$ and is nonempty, the only partition element it intersects is $P_i$ itself, so $nu_0^* (P_i sect E) = p_i$. Similarly, $nu_0^* (P_i sect (X without E)) = p_i$. Therefore,
+  $
+    nu_0^* (A sect E) + nu_0^* (A sect (X without E)) = 2 p_i > p_i = nu_0^* (A)
+  $
+  ...so $E$ does not satisfy the Caratheodory criterion.
+]
+
+We argue the reverse direction.
+#pad(x: 20pt)[
+  Suppose that for all $i$ with $p_i > 0$, either $P_i subset.eq E$ or $P_i sect E = emptyset$. Let $A subset.eq X$ be arbitrary. We must show $nu_0^* (A) = nu_0^* (A sect E) + nu_0^* (A sect (X without E))$.
+
+  Define $I = {i : A sect P_i != emptyset}$, $I_1 = {i : A sect E sect P_i != emptyset}$, and $I_2 = {i : A sect (X without E) sect P_i != emptyset}$. Note that $I = I_1 union I_2$, so
+  $
+    & nu_0^* (A sect E) + nu_0^* (A sect (X without E)) = sum_(i in I_1) p_i + sum_(i in I_2) p_i = \
+    & sum_(i in I) p_i + sum_(i in I_1 sect I_2) p_i
+  $
+
+  If $i in I_1 sect I_2$, then $P_i$ intersects both $E$ and $X without E$, so by our assumption $p_i = 0$. Therefore the second sum vanishes, and we conclude
+  $
+    nu_0^* (A sect E) + nu_0^* (A sect (X without E)) = sum_(i in I) p_i = nu_0^* (A)
+  $
+]
 #pagebreak()
 
 == Problem 6 \*
