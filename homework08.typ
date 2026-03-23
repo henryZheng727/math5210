@@ -84,7 +84,6 @@ We argue that if $B_1, ..., B_n in pi_* mu(B)$ are disjoint, then $pi_* mu(union
     mu(union.big_(i=1)^infinity pi^(-1) (B_i)) = sum_(i=1)^infinity mu(pi^(-1) (B_i)) = sum_(i=1)^infinity pi_* mu(B_i)
   $
 ]
-
 #pagebreak()
 
 == Problem 3
@@ -125,7 +124,34 @@ We argue that $A_1, A_2, ..., in cal(A)_cal(P) => union_(i=1)^infinity cal(A)_ca
 == Problem 4
 Let $S$ be a finite set. Show that every algebra of subsets of $S$ comes from the previous problem. _Hint_: Show that the relation $x ~ y <==>$ for all $A in cal(A)$, $y in A$ implies that $x in A$ is an equivalence relation, and the equivalence class of $x$ is $[x] = inter.big_(A in cal(A)) A$.
 #line(length: 100%)
-// todo
+
+We define the relation $tilde$ on $S$ by $x tilde y <==>$ for all $A in cal(A)$, $y in A => x in A$. We argue that $tilde$ is an equivalence relation.
+#pad(x: 20pt)[
+  _Reflexive_: For all $A in cal(A)$, $x in A => x in A$. This is trivially true.
+
+  _Symmetric_: Suppose $x tilde y$, so for all $A in cal(A)$, $y in A => x in A$. We must show $x in A => y in A$. Suppose $x in A$ but $y in.not A$. Then $y in S without A$, and since $cal(A)$ is an algebra, $S without A in cal(A)$. By hypothesis, $y in S without A => x in S without A$, contradicting $x in A$.
+
+  _Transitive_: Suppose $x tilde y$ and $y tilde z$. Then $forall A in cal(A)$, $z in A => y in A => x in A$.
+]
+
+We argue that $[x] = inter.big_(A in cal(A), x in A) A$.
+#pad(x: 20pt)[
+  ($subset.eq$): Let $y in [x]$, so $x tilde y$. By symmetry, for every $A in cal(A)$ with $x in A$, we have $y in A$. Thus $y in inter.big_(A in cal(A), x in A) A$.
+
+  ($supset.eq$): Let $y in inter.big_(A in cal(A), x in A) A$, so $y$ is in every $A in cal(A)$ containing $x$. Suppose for contradiction that $y in B$ but $x in.not B$ for some $B in cal(A)$. Then $x in S without B in cal(A)$, so $y in S without B$, contradicting $y in B$. Thus $x tilde y$, so $y in [x]$.
+]
+
+We argue that each equivalence class $[x] in cal(A)$.
+#pad(x: 20pt)[
+  Since $S$ is finite, $cal(A)$ is finite. Thus $[x] = inter.big_(A in cal(A), x in A) A$ is a finite intersection of sets in $cal(A)$. An algebra is closed under finite intersections (by closure under complementation and finite unions, via De Morgan's laws), so $[x] in cal(A)$.
+]
+
+Let $cal(P) = {[x] : x in S}$. Since the equivalence classes partition $S$, $cal(P)$ is a partition of $S$. We argue that $cal(A) = cal(A)_cal(P)$.
+#pad(x: 20pt)[
+  ($supset.eq$): Every element of $cal(A)_cal(P)$ is a union of equivalence classes. Each equivalence class is in $cal(A)$, and $cal(A)$ is closed under finite unions, so $cal(A)_cal(P) subset.eq cal(A)$.
+
+  ($subset.eq$): Let $A in cal(A)$. For any $x in A$, if $y tilde x$ then $y in A$ by the definition of $tilde$. Thus $[x] subset.eq A$ for all $x in A$, and so $A = union.big_(x in A) [x]$. This is a union of partition elements, so $A in cal(A)_cal(P)$.
+]
 #pagebreak()
 
 == Problem 5
