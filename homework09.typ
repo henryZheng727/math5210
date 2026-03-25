@@ -39,13 +39,31 @@ We argue $f|_A = g|_A$.
 == Problem 2
 Show that if $(X, mu, cal(A))$ is a probability space, then for every measurable $f$ and $1 <= p < q$, $norm(f)_(L^p) <= norm(f)_(L^q)$. _Hint_: Use Jensen's inequality.
 #line(length: 100%)
-// todo
+
+We seek to prove that
+$
+  & (integral_X abs(f)^p dif mu)^(1/p) <= (integral_X abs(f)^q dif mu)^(1/q) \
+  <==> 
+  & (integral_X abs(f)^p dif mu)^(q/p) <= integral_X abs(f)^q dif mu
+$
+
+By Jensen's inequality, if $g$ is measurable and $phi: RR -> RR$ is $C^2$ and convex, then
+$
+  phi(integral_X g dif mu) <= integral_X phi(g(x)) dif mu
+$
+
+Let $phi = t^(q/p)$ and let $g = abs(f)^p$. Then
+$
+  & phi(integral_X g dif mu) = \
+  & (integral_X abs(f)^p dif mu)^(q/p) <= 
+  & integral_X (abs(f)^p)^(q/p) dif mu \
+  & & = integral_X abs(f)^q dif mu
+$
 #pagebreak()
 
 == Problem 3
 Show that for every $1 <= p < q$, $L^p (RR, m) subset.not L^q (RR, m)$.
 #line(length: 100%)
-// todo
 #pagebreak()
 
 == Problem 4
