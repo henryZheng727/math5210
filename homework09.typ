@@ -62,17 +62,17 @@ $
 #pagebreak()
 
 == Problem 3
-Show that for every $1 <= p < q$, $L^p (RR, m) subset.not L^q (RR, m)$.
+Show that for every $1 <= p < q$, $L^q (RR, m) subset.not L^p (RR, m)$.
 #line(length: 100%)
 #pagebreak()
 
 == Problem 4
-Fix a measure space $(X, mu, cal(A))$ and say that $f$ is essentially bounded if there exists a $B > 0$ such that $abs(f(x)) <= B$ almost everywhere. Show that if $1 <= p < q$ and $f$ is essentially bounded, then $norm(f)_(L^q) <= B^(1 - p/q) (norm(f)_(L^p))^(p/q)$. Use this to conclude that $L_b^p (X, mu)$ denotes the vector space of essentially bounded measurable functions on $(X, mu, cal(A))$, then $L_b^q (X, mu) subset.eq L_b^p (X, mu)$.
+Fix a measure space $(X, mu, cal(A))$ and say that $f$ is essentially bounded if there exists a $B > 0$ such that $abs(f(x)) <= B$ almost everywhere. Show that if $1 <= p < q$ and $f$ is essentially bounded, then $norm(f)_(L^q) <= B^(1 - p/q) (norm(f)_(L^p))^(p/q)$. Use this to conclude that $L_b^p (X, mu)$ denotes the vector space of essentially bounded measurable functions on $(X, mu, cal(A))$, then $L_b^p (X, mu) subset.eq L_b^q (X, mu)$.
 #line(length: 100%)
 // todo
 #pagebreak()
 
 == Problem 5
-For $1 <= p < q$, show that $L^q ([0, 1], m) subset.not L^p ([0, 1], m)$.
+For $1 <= p < q$, show that $L^p ([0, 1], m) subset.not L^q ([0, 1], m)$.
 #line(length: 100%)
 // todo
