@@ -64,6 +64,35 @@ $
 == Problem 3
 Show that for every $1 <= p < q$, $L^q (RR, m) subset.not L^p (RR, m)$.
 #line(length: 100%)
+
+We construct a function $f in L^q (RR, m) without L^p (RR, m)$. Since $p < q$, we have $1/q < 1/p$, so there exists $alpha$ such that $1/q < alpha < 1/p$. Define
+$
+  f(x) = x^(-alpha) dot chi_([1, infinity)) (x)
+$
+
+We first recall that for $r > 0$,
+$
+  integral_1^infinity x^(-r) dif x = lim_(t -> infinity) lr([frac(x^(-r + 1), -r + 1)]|)_(x=1)^(x=t)
+$
+which converges if and only if $r > 1$.
+
+We argue $f in L^q (RR, m)$.
+#pad(x: 20pt)[
+  $
+    integral_RR abs(f)^q dif m = integral_1^infinity x^(-alpha q) dif x
+  $
+  Since $alpha > 1/q$, we have $alpha q > 1$, so this integral converges. Thus $f in L^q$.
+]
+
+We argue $f in.not L^p (RR, m)$.
+#pad(x: 20pt)[
+  $
+    integral_RR abs(f)^p dif m = integral_1^infinity x^(-alpha p) dif x
+  $
+  Since $alpha < 1/p$, we have $alpha p < 1$, so this integral diverges. Thus $f in.not L^p$.
+]
+
+Therefore $L^q (RR, m) subset.not L^p (RR, m)$.
 #pagebreak()
 
 == Problem 4
