@@ -98,7 +98,20 @@ Therefore $L^q (RR, m) subset.not L^p (RR, m)$.
 == Problem 4
 Fix a measure space $(X, mu, cal(A))$ and say that $f$ is essentially bounded if there exists a $B > 0$ such that $abs(f(x)) <= B$ almost everywhere. Show that if $1 <= p < q$ and $f$ is essentially bounded, then $norm(f)_(L^q) <= B^(1 - p/q) (norm(f)_(L^p))^(p/q)$. Use this to conclude that $L_b^p (X, mu)$ denotes the vector space of essentially bounded measurable functions on $(X, mu, cal(A))$, then $L_b^p (X, mu) subset.eq L_b^q (X, mu)$.
 #line(length: 100%)
-// todo
+Suppose $f$ is essentially bounded by $B > 0$, so $abs(f(x)) <= B$ almost everywhere. Then $abs(f(x))^(q - p) <= B^(q - p)$ almost everywhere, so
+$
+  norm(f)_(L^q)^q = integral_X abs(f)^q dif mu = integral_X abs(f)^p dot abs(f)^(q - p) dif mu <= integral_X abs(f)^p dot B^(q - p) dif mu = B^(q - p) norm(f)_(L^p)^p
+$
+Taking the $q$-th root of both sides,
+$
+  norm(f)_(L^q) <= B^((q - p) / q) norm(f)_(L^p)^(p / q) = B^(1 - p/q) (norm(f)_(L^p))^(p/q)
+$
+
+Now suppose $f in L_b^p (X, mu)$, so $f$ is essentially bounded by some $B > 0$ and $norm(f)_(L^p) < infinity$. By the inequality above,
+$
+  norm(f)_(L^q) <= B^(1 - p/q) (norm(f)_(L^p))^(p/q) < infinity
+$
+so $f in L^q (X, mu)$. Since $f$ is still essentially bounded, $f in L_b^q (X, mu)$. Therefore $L_b^p (X, mu) subset.eq L_b^q (X, mu)$.
 #pagebreak()
 
 == Problem 5
