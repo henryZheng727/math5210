@@ -104,4 +104,33 @@ Fix a measure space $(X, mu, cal(A))$ and say that $f$ is essentially bounded if
 == Problem 5
 For $1 <= p < q$, show that $L^p ([0, 1], m) subset.not L^q ([0, 1], m)$.
 #line(length: 100%)
-// todo
+
+We construct a function $f in L^p ([0, 1], m) without L^q ([0, 1], m)$. Since $p < q$, we have $1/q < 1/p$, so there exists $beta$ such that $1/q < beta < 1/p$. Define
+$
+  f(x) = x^(-beta)
+$
+on $(0, 1]$ and $f(0) = 0$.
+
+We first recall that for $r > 0$,
+$
+  integral_0^1 x^(-r) dif x = lim_(epsilon -> 0^+) lr([frac(x^(-r + 1), -r + 1)]|)_(x=epsilon)^(x=1)
+$
+which converges if and only if $r < 1$.
+
+We argue $f in L^p ([0, 1], m)$.
+#pad(x: 20pt)[
+  $
+    integral_0^1 abs(f)^p dif m = integral_0^1 x^(-beta p) dif x
+  $
+  Since $beta < 1/p$, we have $beta p < 1$, so this integral converges. Thus $f in L^p$.
+]
+
+We argue $f in.not L^q ([0, 1], m)$.
+#pad(x: 20pt)[
+  $
+    integral_0^1 abs(f)^q dif m = integral_0^1 x^(-beta q) dif x
+  $
+  Since $beta > 1/q$, we have $beta q > 1$, so this integral diverges. Thus $f in.not L^q$.
+]
+
+Therefore $L^p ([0, 1], m) subset.not L^q ([0, 1], m)$.
