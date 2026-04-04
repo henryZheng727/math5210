@@ -60,7 +60,33 @@ Give an example of a subspace of a Hilbert space which is not closed. Compute $(
 == Problem 4
 Let $cal(H) = L^2 (X, mu)$ where $(X, mu, cal(A))$ is a probability space. Show that if $V$ is the set of constant functions, then $V$ is a vector subspace of $cal(H)$ and describe $V^bot$ in terms of integration.
 #line(length: 100%)
-// todo
+
+We argue $V$ is a vector subspace of $cal(H)$.
+#pad(x: 20pt)[
+  We argue $V subset.eq cal(H)$. This is trivial; every constant function can be recursively integrated an infinite number of times.
+
+  We argue $V$ is closed under vector addition. Let $f(x) = a$ and $g(x) = b in V$. Then $(f + g)(x) = a + b$, which is also constant.
+
+  We argue $V$ is closed under scalar multiplication. Let $f(x) = a in V$ and $c in RR$. Then $(c f)(x) = c dot a$, which is also constant.
+
+  We argue $0 in V$. This is trivial, $f(x) = 0$ is constant.
+]
+
+We describe $V^bot$ in terms of integration.
+#pad(x: 20pt)[
+  Recall that we define the inner product $ip(f, g) = integral_X f(x) overline(g(x)) dif mu$. We argue
+  $
+    V^bot = { f in cal(H) : integral_X f(x) dif mu = 0 }
+  $
+
+  Fix $f in cal(H)$ and let $g(x) = c in V$. Then
+  $
+    & integral_X f(x) overline(g(x)) dif mu = 0 <==> \
+    & integral_X c f(x) dif mu = 0 <==> \
+    & c integral_X f(x) dif mu = 0 <==> \
+    & integral_X f(x) dif mu = 0
+  $
+]
 #pagebreak()
 
 == Problem 5
