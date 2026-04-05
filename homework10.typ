@@ -54,7 +54,38 @@ We argue that $V subset.eq (V^bot)^bot$.
 == Problem 3
 Give an example of a subspace of a Hilbert space which is not closed. Compute $(V^bot)^bot$ for that subspace.
 #line(length: 100%)
-// todo
+
+Let $cal(H) = L^2 ([0, 1])$. This is a Hilbert space (proven in class). Let $P subset cal(H)$ be the set of all polynomials in $cal(H)$.
+
+We argue $P$ is a subspace of $cal(H)$.
+#pad(x: 20pt)[
+  We argue $0 in P$. This is trivial; the $0$-function is a polynomial.
+
+  We argue $P$ is closed under vector addition. This is again trivial; the sum of two polynomials is still a polynomial.
+
+  We argue $P$ is closed under scalar multiplication. This is yet again trivial; it reduces to scaling the coefficients of the polynomial.
+]
+
+We argue $P$ is not closed in $cal(H)$.
+#pad(x: 20pt)[
+  We construct a sequence of polynomials which converges to a non-polynomial function in $cal(H)$.
+
+  // todo
+]
+
+We compute $(P^bot)^bot$.
+#pad(x: 20pt)[
+  Recall that we define the inner product $ip(f, g) = integral_X f(x) overline(g(x)) dif mu$. Note since we only work with real-valued functions for the purposes of this problem, $ip(f, g) = integral_X f(x) g(x) dif mu$. We argue that $(P^bot)^bot = cal(H)$.
+
+  First, we argue $P^bot = {0}$.
+  #pad(x: 20pt)[
+    We argue $x = 0 => x in P^bot$. This is trivial; $ip(0, f) = 0 space forall f$ definitionally.
+
+    We argue $x in P^bot => x = 0$. // todo
+  ]
+
+  Secondly, we argue $(P^bot)^bot = cal(H)$. Let $f in cal(H)$. Given that the only value in $P^bot$ is $0$, and definitionally, $ip(f, 0) = 0$, then $f in (P^bot)^bot$.
+]
 #pagebreak()
 
 == Problem 4
