@@ -155,7 +155,32 @@ We describe $V^bot$ in terms of integration.
 == Problem 5
 Show that if $V$ is a closed subspace of $cal(H)$, and $w in cal(H)$, then the function $phi_w : V -> RR$ defined by $phi_w (v) = norm(v - w)$ achieves a minimum. _Hint_: Consider a sequence $v_n$ such that $phi_w (v_n)$ converges to the infimum, then show  that $v_n$ is Cauchy (and hence converges). You will have to use the average $(v_n + v_m)/2$ to get a good estimate.
 #line(length: 100%)
-// todo
+
+Let $d = inf_(v in V) norm(v - w)$. By definition of infimum, there exists a sequence $v_n in V$ such that $norm(v_n - w) -> d$.
+
+We argue $v_n$ is Cauchy.
+#pad(x: 20pt)[
+  By the parallelogram law, for any $a, b in cal(H)$,
+  $
+    norm(a + b)^2 + norm(a - b)^2 = 2 norm(a)^2 + 2 norm(b)^2.
+  $
+  Let $a = v_n - w$ and $b = v_m - w$. Then
+  $
+    norm(v_n + v_m - 2w)^2 + norm(v_n - v_m)^2 = 2 norm(v_n - w)^2 + 2 norm(v_m - w)^2.
+  $
+  Since $V$ is a subspace, $(v_n + v_m) / 2 in V$, so $norm((v_n + v_m) / 2 - w) >= d$, which gives $norm(v_n + v_m - 2w)^2 >= 4d^2$. Rearranging,
+  $
+    norm(v_n - v_m)^2 &= 2 norm(v_n - w)^2 + 2 norm(v_m - w)^2 - norm(v_n + v_m - 2w)^2 \
+    &<= 2 norm(v_n - w)^2 + 2 norm(v_m - w)^2 - 4d^2.
+  $
+  Fix $epsilon > 0$. Since $norm(v_n - w)^2 -> d^2$, there exists $N$ such that for $n >= N$, $norm(v_n - w)^2 < d^2 + epsilon^2 / 4$. Then for $n, m >= N$,
+  $
+    norm(v_n - v_m)^2 <= 2(d^2 + epsilon^2 / 4) + 2(d^2 + epsilon^2 / 4) - 4d^2 = epsilon^2
+  $
+  so $norm(v_n - v_m) < epsilon$. Hence $v_n$ is Cauchy.
+]
+
+Since $cal(H)$ is complete, $v_n -> v^*$ for some $v^* in cal(H)$. Since $V$ is closed and $v_n in V$, we have $v^* in V$. By continuity of the norm, $phi_w (v^*) = norm(v^* - w) = lim norm(v_n - w) = d$. Thus $phi_w$ achieves its minimum at $v^*$.
 #pagebreak()
 
 == Problem 6
