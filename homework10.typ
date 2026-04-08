@@ -186,4 +186,20 @@ Since $cal(H)$ is complete, $v_n -> v^*$ for some $v^* in cal(H)$. Since $V$ is 
 == Problem 6
 Show that if $v_1$ and $v_2$ both minimize the function $phi_w$ of the previous problem, then $v_1 = v_2$. _Hint_: Show that $norm(v_1 - v_2) = 0$ using similar estimates from the previous problem and the minimization property.
 #line(length: 100%)
-// todo
+
+Suppose $v_1, v_2 in V$ both minimize $phi_w$, so $norm(v_1 - w) = norm(v_2 - w) = d$.
+
+We argue $norm(v_1 - v_2) = 0$.
+#pad(x: 20pt)[
+  By the parallelogram law with $a = v_1 - w$ and $b = v_2 - w$,
+  $
+    norm(v_1 + v_2 - 2w)^2 + norm(v_1 - v_2)^2 = 2 norm(v_1 - w)^2 + 2 norm(v_2 - w)^2 = 4d^2.
+  $
+  Since $V$ is a subspace, $(v_1 + v_2) / 2 in V$, so $norm((v_1 + v_2) / 2 - w) >= d$, which gives $norm(v_1 + v_2 - 2w)^2 >= 4d^2$. Therefore,
+  $
+    norm(v_1 - v_2)^2 = 4d^2 - norm(v_1 + v_2 - 2w)^2 <= 4d^2 - 4d^2 = 0.
+  $
+  Since $norm(v_1 - v_2)^2 >= 0$, we conclude $norm(v_1 - v_2)^2 = 0$, so $norm(v_1 - v_2) = 0$.
+]
+
+Therefore $v_1 = v_2$.
