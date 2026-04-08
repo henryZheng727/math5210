@@ -70,7 +70,11 @@ We argue $P$ is not closed in $cal(H)$.
 #pad(x: 20pt)[
   We construct a sequence of polynomials which converges to a non-polynomial function in $cal(H)$.
 
-  // todo
+  Consider $f(t) = e^t$, which is not a polynomial. The partial sums of its Taylor series, $p_n (t) = sum_(k=0)^n t^k / k!$, are polynomials (so $p_n in P$). Since the Taylor series of $e^t$ converges uniformly on $[0, 1]$, we have $sup_(t in [0,1]) abs(p_n (t) - e^t) -> 0$. Then
+  $
+    norm(p_n - f)^2 = integral_0^1 abs(p_n (t) - e^t)^2 dif t <= sup_(t in [0,1]) abs(p_n (t) - e^t)^2 -> 0.
+  $
+  So $p_n -> f$ in $L^2 ([0, 1])$, but $f in.not P$. Thus $P$ is not closed.
 ]
 
 We compute $(P^bot)^bot$.
@@ -81,7 +85,7 @@ We compute $(P^bot)^bot$.
   #pad(x: 20pt)[
     We argue $x = 0 => x in P^bot$. This is trivial; $ip(0, f) = 0 space forall f$ definitionally.
 
-    We argue $x in P^bot => x = 0$. // todo
+    We argue $x in P^bot => x = 0$. Suppose $x in P^bot$. Then $ip(x, p) = 0$ for all $p in P$. In particular, $integral_0^1 x(t) t^n dif t = 0$ for all $n >= 0$. By linearity, $ip(x, p) = 0$ for all polynomials $p$. By the Stone-Weierstrass theorem, polynomials are uniformly dense in $C([0, 1])$, and $C([0, 1])$ is dense in $L^2 ([0, 1])$. So for any $g in L^2([0, 1])$, there exists a sequence of polynomials $p_n -> g$ in $L^2$. By continuity of the inner product, $ip(x, g) = lim ip(x, p_n) = 0$. Taking $g = x$ gives $norm(x)^2 = 0$, so $x = 0$ a.e.
   ]
 
   Secondly, we argue $(P^bot)^bot = cal(H)$. Let $f in cal(H)$. Given that the only value in $P^bot$ is $0$, and definitionally, $ip(f, 0) = 0$, then $f in (P^bot)^bot$.
