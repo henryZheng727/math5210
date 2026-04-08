@@ -17,7 +17,35 @@ $
 $
 converges in $cal(H)$ (with respect to the norm induced by the inner product) if and only if $sum_(k=1)^n abs(a_k)^2 < infinity$. _Hint_: Determine when the sequence of partial sums $psi_n$ is Cauchy.
 #line(length: 100%)
-// todo
+Since $cal(H)$ is complete, $psi_n$ converges if and only if $psi_n$ is Cauchy.
+
+We first compute $norm(psi_n - psi_m)^2$ for $n > m$.
+#pad(x: 20pt)[
+  By bilinearity of the inner product and orthonormality ($ip(phi_k, phi_j) = delta_(k j)$),
+  $
+    norm(psi_n - psi_m)^2 &= norm(sum_(k=m+1)^n a_k phi_k)^2 \
+    &= sum_(k=m+1)^n sum_(j=m+1)^n a_k overline(a_j) ip(phi_k, phi_j) \
+    &= sum_(k=m+1)^n abs(a_k)^2.
+  $
+]
+
+We argue $psi_n$ converges $=>$ $sum_(k=1)^infinity abs(a_k)^2 < infinity$.
+#pad(x: 20pt)[
+  Suppose $psi_n$ converges. Then $psi_n$ is Cauchy. Fix $epsilon > 0$. Then there exists $N$ such that for $n > m >= N$, $norm(psi_n - psi_m) < sqrt(epsilon)$. Then
+  $
+    sum_(k=m+1)^n abs(a_k)^2 = norm(psi_n - psi_m)^2 < epsilon.
+  $
+  This means the partial sums $S_n = sum_(k=1)^n abs(a_k)^2$ form a Cauchy sequence in $RR$, hence converge; thus, $sum_(k=1)^infinity abs(a_k)^2 < infinity$.
+]
+
+We argue $sum_(k=1)^infinity abs(a_k)^2 < infinity$ $=>$ $psi_n$ converges.
+#pad(x: 20pt)[
+  Suppose $sum_(k=1)^infinity abs(a_k)^2 < infinity$. Then the partial sums $S_n = sum_(k=1)^n abs(a_k)^2$ converge, hence are Cauchy. So for all $epsilon > 0$, there exists $N$ such that for $n > m >= N$, $sum_(k=m+1)^n abs(a_k)^2 < epsilon^2$. Then
+  $
+    norm(psi_n - psi_m)^2 = sum_(k=m+1)^n abs(a_k)^2 < epsilon^2
+  $
+  so $norm(psi_n - psi_m) < epsilon$. Hence $psi_n$ is Cauchy, and since $cal(H)$ is complete, $psi_n$ converges.
+]
 #pagebreak()
 
 == Problem 2
