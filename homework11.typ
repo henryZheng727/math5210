@@ -46,4 +46,5 @@ Consider $Sigma_2$ to be the 2-sided shift space on the symbols $0$ and $1$, and
 == Problem 6 \*
 Combine problems 2, 4 and 5 to compute the spectrum of the shift operator $sigma : Sigma_2 -> Sigma_2$ as a measure-preserving transformation of $Sigma_2$ with the $(1/2, 1/2)$-Bernoulli measure.
 #line(length: 100%)
-// todo
+
+I did not complete this question, as it was not required.
