@@ -279,19 +279,18 @@ $
 *Definition 1*. $cal(H)$ is a Hilbert space if it is a vector space $X$ with an inner product $ip(dot, dot) : X times X -> CC$ such that
 1. #block[
   $ip(dot, dot)$ is bilinear and symmetric.
-  #enum(
-    numbering: "a)",
-    [$ip(f_1 + f_2, g) = ip(f_1, g) + ip(f_2, g)$],
-    [$ip(f, g_1 + g_2) = ip(f, g_1) + ip(f, g_2)$],
-    [$ip(lambda f, g) = lambda ip(f, g)$],
-    [$ip(f, g) = overline(ip(g, f))$],
-  )
+    - $ip(f_1 + f_2, g) = ip(f_1, g) + ip(f_2, g)$ and $ip(f, g_1 + g_2) = ip(f, g_1) + ip(f, g_2)$
+    - $ip(lambda f, g) = lambda ip(f, g)$ and $ip(f, g) = overline(ip(g, f))$
 ]
 2. $cal(H)$ is complete with respect to $norm(f) = sqrt(ip(f, f))$.
 
 *Example*. $L^2 (X, mu)$ is a Hilbert space with $ip(f, g) = integral_X f overline(g) dif mu$.
 
 *Definition 2*. The _orthogonal complement_ of $V subset.eq cal(H)$ (denoted as $V^perp$) is defined by ${h in cal(H) : ip(h, v) = 0 space forall v in V}$.
+
+*Definition 3*. An operator on $cal(H)$ is a linear function $phi.alt: V -> V$. The operator is _bounded_ if its norm, defined $norm(phi.alt) = sup_(v != 0) norm(phi.alt(v)) / norm(v)$, is finite.
+
+*Definition 4*. $cal(B)(cal(H))$ is the set of bounded operators on $V$.
 
 *Theorem 3 (Riesz Representation)*. Let $cal(H)$ be a Hilbert space and $f: cal(H) -> CC$ be a bounded linear functional. Then there exists a unique \ $w = sup_(v != 0) abs(f(v)) / norm(v) in cal(H)$ where $f(v) = ip(v, w)$ for all $v in cal(H)$.
 
@@ -332,17 +331,31 @@ $
 
 *Definition 3*. Let $cal(H)$ be a Hilbert space and $phi.alt: cal(H) -> cal(H)$ be an operator. $phi.alt$ is _unitary_ if $ip(v, w) = ip(phi.alt(v), phi.alt(w))$ for all $v, w in cal(H)$.
 
-*Definition x*. If $phi.alt in cal(B)(cal(H))$, then $lambda in "Spec"(phi.alt)$ if and only if $phi.alt - lambda I d$ does _not_ have a bounded inverse.
+*Lemma 2*. If $phi.alt$ is unitary, then it is bounded and its norm is $1$.
 
-*Definition x*. $A subset.eq X$ is called $T$-invariant if $A = T^(-1) (A)$.
+*Definition 4*. If $phi.alt in cal(B)(cal(H))$, then $lambda in "Spec"(phi.alt)$ if and only if $phi.alt - lambda I d$ does _not_ have a bounded inverse.
 
-*Definition x*. $T$ is called _ergodic_, or _irreducible_, if every $T$-invariant subset $A$ has $mu(A) = 0$ or $mu(A) = 1$.
+*Definition 5*. $A subset.eq X$ is called $T$-invariant if $A = T^(-1) (A)$.
 
-*Theorem (Von Neumann Ergodicity Criterion)*. $T$ is ergodic if and only if $cal(U)_T$ has $1$ as an eigenvalue with multiplicity $1$.
+*Definition 6*. $T$ is called _ergodic_, or _irreducible_, if every $T$-invariant subset $A$ has $mu(A) = 0$ or $mu(A) = 1$.
 
-*Theorem (Von Neumann)*. Let $cal(I) (T)$ denote the vector space of $T$-invariant functions. TODO
+*Theorem 1 (Von Neumann Ergodicity Criterion)*. $T$ is ergodic if and only if $cal(U)_T$ has $1$ as an eigenvalue with multiplicity $1$.
 
-*Definition x*. $T$ is called _mixing_ if $forall A, B subset.eq X$, then $mu(A inter T^(-1) (B))$ converges to $mu(A) mu(B)$.
+*Theorem 2 (Von Neumann Ergodic Theorem)*. Let $cal(I) (T)$ denote the vector space of $T$-invariant functions. Then $forall f in L^2 (X, mu)$,
+$
+  1/N sum_(n=0)^(N-1) U_T^n f ->_(L^2) pi_(cal(I)(T)) (f)
+$
+...where $phi_(cal(I)(T)) (f)$ is the orthogonal projection onto $cal(I) (T)$.
 
-*Lemma*. If $T$ is mixing, then $T$ is ergodic.
-TODO
+*Definition 7*. $T$ is called _mixing_ if $forall A, B subset.eq X$, then $mu(A inter T^(-1) (B))$ converges to $mu(A) mu(B)$.
+
+*Lemma 3*. If $T$ is mixing, then $T$ is ergodic.
+
+*Definition 8*. Let $f, g in cal(H)$ and let $U: cal(H) -> cal(H)$ be unitary. Then the matrix coefficients of $U$ are $U_(f, g) = ip(f, U g)$.
+
+*Definition 9*. Let $L_0^2 (X, mu) = {f in L^2 (X, mu) : integral_f dif mu = 0}$.
+
+*Theorem 3*. The following are equivalent.
+1. $T$ is mixing.
+2. $ip(f, U_T^n g) -> (integral f dif mu) dot (integral overline(g)) dif mu)$
+3. The matrix coefficients of $U_T^n$ acting on $L_0^2 (X, mu)$ converge to $0$.
