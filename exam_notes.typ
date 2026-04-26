@@ -180,7 +180,7 @@ Recall that $liminf I_n = inf {lim I_n_k : I_n_k "converges"}$.
 
 *Theorem 2 (Bounded Convergence)*. Let $m(E) < infinity$ and $f_n: E -> RR$ be a sequence of uniformly bounded, measurable, non-negative functions. If $f_n -> f$ pointwise almost everywhere, then $integral_E f_n dif m -> integral_E f dif m$.
 
-== Measure Spaces
+== Caratheodory Construction
 *Remark*. We generalize the notion of measure to spaces other than $RR$.
 
 *Definition 1*. Let $X$ be a set. $cal(A)_0$ is an _algebra_ of sets on $X$ if
@@ -210,35 +210,45 @@ $
 
 *Theorem 2*. $cal(A)_0 subset.eq cal(A)$, and $forall A in cal(A)_0 space mu^* (A) = mu_0 (A)$.
 
-// todo - product measures, finite measures
+*Definition 5*. A _probability space_ is a measure space where $mu(X) = 1$.
+
+*Remark*. A measure on a finite space is exactly equivalent to the pre-measure, because every algebra is a $sigma$-algebra.
+
+*Definition 6*. $x in "supp"(mu)$ if for all $epsilon > 0$, $mu((x - epsilon, x + epsilon)) > 0$.
+
+// TODO
+// define product measure
+// define pushforward
 
 == Bernoulli Measure
-*Definition 1*. Define the space of sequences $Sigma_N$ such that elements of $Sigma_N$ are infinite sequences $arrow(x) = (x_i)_(i in NN)$, where each $x_i in {0, 1, ..., N - 1}$.
+*Definition 1*. Define the space of sequences $Sigma_d$ where elements are bi-directional infinite sequences $(x_i)_(i in ZZ)$, where each $x_i in {0, 1, ..., d - 1}$.
 
-*Definition 2*. Let $pi_i : Sigma_N -> {0, 1, ..., N - 1}$ be the projection map defined by $pi_i (arrow(x)) = x_i$.
+*Remark*. We may easily define $Sigma_d^+$, where the sequences are not bi-directional (i.e., elements are $(x_i)_(i in NN)$).
 
-*Definition 3*. Define a _cylinder set_
+*Definition 2*. Fix $w = w_(-n), w_(-(n-1)) ... w_(n-1) w_n$. The _cylinder set_ of $w$ is
 $
-  C = inter.big_(i in S) pi_i^(-1) (x_i) "for any finite" S subset.eq NN "and" x_i in {0, 1, ..., N - 1}
+  C_w = {(x_n)_(n in ZZ) : x_i = w_i space forall abs(i) <= n}
 $
 
-*Definition*. todo define the premeasure on cylinder sets
+*Definition 3*. Fix $p = (p_0, ..., p_(lambda-1))$ such that $sum_(i=0)^(lambda-1) p_i = 1$ and $forall i space p_i >= 0$. Then define the _pre-measure_ as
+$
+  mu_0 (C_w) = product_(i=-n)^n p w_i
+$
+
+*Remark*. We may intuitionally think of each $p_i$ as _probability weight_.
+
+*Remark*. From this pre-measure, we may follow the traditional Caratheodory construction to produce _Bernoulli measure_.
 
 == $L^p$ Spaces
-*Definition 1*. Define the equivalence relation $f ~ g$ if and only if
-$
-  exists A subset.eq X space mu(X without A) = 0 "and" f|_A = g|_A
-$
-
-todo - theorem: cauchy ae => L^p convergence (not vice versa)
+*Definition 1*. Define $f ~ g$ if and only if $f(x) = g(x)$ for almost every $x$.
 
 *Remark*. If $f, g$ are continuous and $f ~ g$, then $f = g$.
 
-*Definition 2*. Fix $p >= 1$. Let $L^p (X, mu)$ denote the space of equivalence classes of integrable functions $f: X -> RR$ such that $integral_X abs(f)^P dif mu < infinity$.
+*Definition 2*. Fix $p >= 1$. Let $L^p (X, mu)$ denote the space of _equivalence classes_ of integrable functions $f: X -> RR$ such that $integral_X abs(f)^p dif mu < infinity$.
 
 *Definition 3*. Define the norm
 $
-  norm(f)_(L^p) = (integral_X abs(f)^P dif mu)^(1/p)
+  norm(f)_(L^p) = (integral_X abs(f)^p dif mu)^(1/p)
 $
 
 *Definition 4*. $f: RR -> RR$ is _convex_ if and only if $forall a, b in RR$ and $t in [0, 1]$, then $f(t a + (1 - t)) <= t f(a) + (1 - t) f(b)$.
@@ -252,48 +262,87 @@ $
 
 *Theorem 2*. If $(X, mu, cal(A))$ is a measure space, then $L^p (X, mu)$ is complete.
 
-*Definition 5*. todo typewriter sequence
+*Theorem 3*. If $f_n -> f$ in $L^p$, then there exists a subsequence $f_n_k -> f$ almost everywhere.
 
-*Remark*. The typewriter sequence does _not_ converge almost everywhere, but it _does_ converge in $L^p$. This shows that convergence in $L^p$ does not imply convergence almost everywhere.
+*Remark*. There exists a sequence (the _typewriter sequence_) that _does_ converge in $L^p$, but _does not_ converge almost everywhere.
 
-*Theorem 3 (Young's Inequality)*. For $1 < p < infinity$ and $1/p + 1/q = 1$, then for every $a, b >= 0$, then $a b <= a^p / p + b^q / q$.
+*Theorem 4 (Young's Inequality)*. For $1 < p < infinity$ and $1/p + 1/q = 1$, then for every $a, b >= 0$, then $a b <= a^p / p + b^q / q$.
 
-*Theorem 4 (Holder's Inequality)*. For $1 <= p <= infinity$ and $1/p + 1/q = 1$, if $f in L^p (X, mu)$ and $g in L^q (X, mu)$, then $f dot g in L^1 (X, mu)$ and
+*Theorem 5 (Holder's Inequality)*. Let $1 < p < infinity$ and $1/p + 1/q = 1$. Then if $f in L^p (X, mu)$ and $g in L^q (X, mu)$, then
 $
-  integral_x abs(f dot g) dif mu <= norm(f)_(L^p) dot norm(g)_(L^q)
-$
-Moreover, for $p < infinity$, if $f != 0$, the function $f^* = norm(f)_(L^p)^(1 - p) dot abs(f)^(p - 1) "sign"(f)$ belongs to $L^q (X, mu)$,
-$
-  integral_X f dot f^* dif mu = norm(f)_(L^p) "and" norm(f^*)_(L^q) = 1
+  integral_X abs(f g) dif mu <= norm(f)_(L^p) norm(g)_(L^q)
 $
 
-TODO - when is $L^p (X, mu) subset.eq L^p (X, mu)$? homework question. you should know this
+// *TODO*: Cauchy-Schwartz inequality. Specific case of Holder.
 
 == Hilbert Spaces and $L^2$ Spaces
-*Definition 1*. $cal(H)$ is a Hilbert space if it is a vector space with an inner product $ip(dot, dot)$ such that
+*Definition 1*. $cal(H)$ is a Hilbert space if it is a vector space $X$ with an inner product $ip(dot, dot) : X times X -> CC$ such that
 1. #block[
   $ip(dot, dot)$ is bilinear and symmetric.
   #enum(
     numbering: "a)",
-
-    // [$ip(alpha x_1 + beta x_2, y) = alpha(x_1, y) + beta(x_2, y)$],
-    // [$ip(x, y) = overline(ip(y, x))$],
-
     [$ip(f_1 + f_2, g) = ip(f_1, g) + ip(f_2, g)$],
     [$ip(f, g_1 + g_2) = ip(f, g_1) + ip(f, g_2)$],
     [$ip(lambda f, g) = lambda ip(f, g)$],
     [$ip(f, g) = overline(ip(g, f))$],
-
   )
 ]
-2. If $norm(f) = sqrt(ip(f, f))$, then $cal(H)$ is complete with respect to this norm.
+2. $cal(H)$ is complete with respect to $norm(f) = sqrt(ip(f, f))$.
 
-L^2-spaces as examples
-Closed subspaces
-Riesz Representation Theorem (statement only)
+*Example*. $L^2 (X, mu)$ is a Hilbert space with $ip(f, g) = integral_X f overline(g) dif mu$.
 
-// todo - definition of V^perp, from hw10 problem 2?
+*Definition 2*. The _orthogonal complement_ of $V subset.eq cal(H)$ (denoted as $V^perp$) is defined by ${h in cal(H) : ip(h, v) = 0 space forall v in V}$.
+
+*Theorem 3 (Riesz Representation)*. Let $cal(H)$ be a Hilbert space and $f: cal(H) -> CC$ be a bounded linear functional. Then there exists a unique \ $w = sup_(v != 0) abs(f(v)) / norm(v) in cal(H)$ where $f(v) = ip(v, w)$ for all $v in cal(H)$.
 
 == Orthonormal Sets
+*Definition 1*. Let $cal(H)$ be a Hilbert space. Then ${phi_n} subset.eq cal(H)$ is _orthonormal_ if
+$
+  ip(phi_n, phi_m) = cases(
+    0 & "if" m != n,
+    1 & "if" m = n
+  )
+$
+
+*Definition 2*. ${phi_n}$ is _complete orthonormal_ if it is orthonormal and $ip(psi, phi_n) = 0 space forall n$ if and only if $phi = 0$.
+
+*Remark*. An alternative characterization defines ${phi_n}$ as complete orthonormal if $overline("span"{phi_n}) = cal(H)$.
+
+*Theorem 1 (Bessel's Inequality)*. If ${phi_n}$ is orthonormal, then
+$
+  norm(psi) >= (sum_n abs(ip(psi, phi_n))^2)^(1/2)
+$
+...where $norm(psi) = (ip(psi, psi))^(1/2)$.
+
+*Theorem 2 (Parseval)*. If ${phi_n}$ is complete orthonormal, and $psi in cal(H)$,
+$
+  psi = sum_n ip(psi, phi_n) phi_n
+$
+
+*Corollary*. Equality holds in Theorem 1 if ${phi_n}$ is complete orthonormal.
+
+*Example 1*. The _Fourier basis_ $phi_n (x) = e^(2 pi i n x)$ for $n in ZZ$ is a complete orthonormal set for $L^2 ([0, 1), m)$.
 
 == Ergodic and Spectral Theory
+*Definition 1*. Let $(X, cal(A), mu)$ be a probability space. $T: X -> X$ is called _$mu$-preserving_ if for every measurable set $A subset.eq X$, then $mu(T^(-1) (A)) = mu(A)$.
+
+*Definition 2*. Let $T: X -> X$ be $mu$-preserving on $(X, cal(A), mu)$. Then the operator $U_T : L^2 (X, mu) -> L^2 (X, u)$ defined by $U_T (f) := f compose T$ is called the _Koopman operator_ associated to $T$.
+
+*Lemma 1*. For all $f, g in L^2 (X, mu)$, then $ip(f, g) = ip(U_T (f), U_T (g))$.
+
+*Definition 3*. Let $cal(H)$ be a Hilbert space and $phi.alt: cal(H) -> cal(H)$ be an operator. $phi.alt$ is _unitary_ if $ip(v, w) = ip(phi.alt(v), phi.alt(w))$ for all $v, w in cal(H)$.
+
+*Definition x*. If $phi.alt in cal(B)(cal(H))$, then $lambda in "Spec"(phi.alt)$ if and only if $phi.alt - lambda I d$ does _not_ have a bounded inverse.
+
+*Definition x*. $A subset.eq X$ is called $T$-invariant if $A = T^(-1) (A)$.
+
+*Definition x*. $T$ is called _ergodic_, or _irreducible_, if every $T$-invariant subset $A$ has $mu(A) = 0$ or $mu(A) = 1$.
+
+*Theorem (Von Neumann Ergodicity Criterion)*. $T$ is ergodic if and only if $cal(U)_T$ has $1$ as an eigenvalue with multiplicity $1$.
+
+*Theorem (Von Neumann)*. Let $cal(I) (T)$ denote the vector space of $T$-invariant functions. TODO
+
+*Definition x*. $T$ is called _mixing_ if $forall A, B subset.eq X$, then $mu(A inter T^(-1) (B))$ converges to $mu(A) mu(B)$.
+
+*Lemma*. If $T$ is mixing, then $T$ is ergodic.
+TODO
